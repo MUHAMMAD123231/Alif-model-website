@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Class Discussion Forum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../static/style/style.css">
+</head>
+<body>
+
+  <header>
+    <h2>Welcome to JSS3 Discussion Forum</h2>
+  </header>
+  <section id="chat_area">
+    <div class="chat-message student">
+      <strong>@jss3_student:</strong> Please what is today's topic?
+      <small>10:30 AM</small>
+    </div>
+    <div class="chat-message teacher">
+      <strong>Teacher Mariam 👩‍🏫:</strong> Open your Integrated Science textbook to page 22.
+      <small>10:31 AM</small>
+    </div>
+  </section>
+  <form id="message_form" method="POST" enctype="multipart/form-data" action="/post-message">
+    <textarea name="message" placeholder="Write your message..."></textarea>
+    <label for="attachment">Attach file:</label>
+    <input type="file" name="attachment" id="attachment" accept="*/*" />
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>

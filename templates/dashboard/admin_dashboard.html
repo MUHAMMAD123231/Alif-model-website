@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside>
+    <h2>🔧 Admin Dashboard</h2>
+    <nav>
+      <ul>
+        <li><a href="#overview">Dashboard Overview</a></li>
+        <li><a href="#registrations">Pending Registrations</a></li>
+        <li><a href="#manage-users">Manage Users</a></li>
+        <li><a href="#student-reports">All Student Reports</a></li>
+        <li><a href="#feeds">Feeds & Scheme of Work</a></li>
+        <li><a href="#events">Post Events</a></li>
+        <li><a href="#discussion-forums">Discussion Forums</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main>
+    <!-- Overview -->
+    <section id="overview">
+      <h3>📊 Admin Overview</h3>
+      <p>Welcome, Admin. You have full control over the portal.</p>
+    </section>
+
+    <!-- Pending Registrations -->
+    <section id="registrations">
+      <h3>📝 Pending User Registrations</h3>
+      <p>Review new user signups and approve or reject them.</p>
+      <div class="registration-card">
+        <strong>Teacher: Mariam Yusuf</strong> (Subjects: Biology, Chemistry)<br>
+        <button>✅ Accept</button>
+        <button>❌ Reject</button>
+      </div>
+      <div class="registration-card">
+        <strong>Student: Abdul Sobur</strong> (Class: JSS1)<br>
+        <button>✅ Accept</button>
+        <button>❌ Reject</button>
+      </div>
+    </section>
+
+    <!-- Manage Users -->
+    <section id="manage-users">
+      <h3>👥 Manage All Users</h3>
+      <input type="search" placeholder="Search student or teacher by name or ID">
+      <h4>Students</h4>
+      <ul>
+        <li>Abdul Sobur – JSS1 – ID: STD001</li>
+        <li>Fatima Musa – SSS2 – ID: STD034</li>
+        <!-- More students -->
+      </ul>
+      <h4>Teachers</h4>
+      <ul>
+        <li>Mariam Yusuf – Chemistry – ID: TCH002</li>
+        <li>John Bello – Physics – ID: TCH005</li>
+        <!-- More teachers -->
+      </ul>
+    </section>
+
+    <!-- Student Reports -->
+    <section id="student-reports">
+      <h3>📑 View Student Reports</h3>
+      <p>Select a student to view their performance and leave a comment.</p>
+      <label for="studentSelect">Choose Student:</label>
+      <select id="studentSelect" required>
+        <option value="">-- Select Student --</option>
+        <option value="sobur">Abdul Sobur (JSS1)</option>
+        <option value="fatima">Fatima Musa (SSS2)</option>
+      </select>
+      <div class="student-report">
+        <h4>Performance Report</h4>
+        <table>
+          <tr><th>Subject</th><th>Score</th><th>Grade</th><th>Comment</th></tr>
+          <tr><td>Mathematics</td><td>78%</td><td>B</td><td>Improved well</td></tr>
+          <tr><td>English</td><td>85%</td><td>A</td><td>Excellent</td></tr>
+        </table>
+        <label>Leave Admin Comment:</label><br>
+        <textarea placeholder="Write your comment here..." required></textarea><br>
+        <button type="submit">Submit Comment</button>
+      </div>
+    </section>
+
+    <!-- Feeds -->
+    <section id="feeds">
+      <h3>📢 Post Feed / Scheme of Work</h3>
+      <p>Post announcements and scheme updates that appear to all teachers and students.</p>
+      <form>
+        <label>Title: <input type="text" required></label><br>
+        <label>Description:<br>
+          <textarea required></textarea>
+        </label><br>
+        <label>Attach File: <input type="file" accept="*/*"></label><br>
+        <button type="submit">Post Feed</button>
+      </form>
+    </section>
+
+    <!-- Events -->
+    <section id="events">
+      <h3>🎉 Post Event or Celebration</h3>
+      <form>
+        <label>Event Title: <input type="text" required></label><br>
+        <label>Description:<br><textarea required></textarea></label><br>
+        <label>Date: <input type="date" required></label><br>
+        <button type="submit">Post Event</button>
+      </form>
+    </section>
+
+    <!-- Discussion Forums -->
+    <section id="discussion-forums">
+      <h3>💬 All Class Discussions</h3>
+      <p>View and monitor all class discussions.</p>
+      <ul>
+        <li><a href="#">📘 JSS1 Forum</a></li>
+        <li><a href="#">📘 JSS2 Forum</a></li>
+        <li><a href="#">📘 JSS3 Forum</a></li>
+        <li><a href="#">📗 SSS1 Forum</a></li>
+        <li><a href="#">📗 SSS2 Forum</a></li>
+        <li><a href="#">📗 SSS3 Forum</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

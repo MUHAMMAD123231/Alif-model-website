@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Dashboard</title>
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside>
+    <h2>📘 Teacher Dashboard</h2>
+    <nav>
+      <ul>
+        <li><a href="#overview">Dashboard Overview</a></li>
+        <li><a href="#biodata">My Bio Data</a></li>
+        <li><a href="#assignments">Assignments</a></li>
+        <li><a href="#class-reports">Class Reports</a></li>
+        <li><a href="#announcements">Announcements</a></li>
+        <li><a href="#events">School Events</a></li>
+        <li><a href="#feed">📢 School Feed</a></li>
+        <li><a href="#students-hub-view">Students' Hub (View Only)</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Overview -->
+    <section id="overview">
+      <h3>Welcome to Your Dashboard</h3>
+      <p>Manage students, assignments, announcements, and more.</p>
+    </section>
+
+    <!-- Bio Data -->
+    <section id="biodata">
+      <h3>My Bio Data</h3>
+      <form method="POST">
+        <label>Full Name: <input type="text" required></label><br>
+        <label>Gender:
+          <select required>
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </label><br>
+        <label>Date of Birth: <input type="date" required></label><br>
+        <label>Nationality: <input type="text" required></label><br>
+        <label>State of Origin: <input type="text" required></label><br>
+        <label>LGA: <input type="text" required></label><br>
+        <label>Passport Photo: <input type="file" required></label><br>
+        <label>Phone Number: <input type="tel" required></label><br>
+        <label>Email: <input type="email" required></label><br>
+        <label>Home Address: <input type="text" required></label><br>
+        <label>Staff ID: <input type="text" required></label><br>
+        <label>Subjects Taught: <input type="text" required></label><br>
+        <label>Qualification: <input type="text" required></label><br>
+        <label>Emergency Contact Name: <input type="text" required></label><br>
+        <label>Emergency Contact Relationship: <input type="text" required></label><br>
+        <label>Emergency Phone: <input type="tel" required></label><br>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Assignments Section -->
+    <section id="assignments">
+      <h3>Post New Assignment</h3>
+      <form method="POST">
+        <label>Title: <input type="text" name="title" required></label><br>
+        <label>Description:<br>
+          <textarea name="description" required></textarea>
+        </label><br>
+        <label>Subject:
+          <select name="subject" required>
+            <option value="">Select Subject</option>
+            <option>Mathematics</option>
+            <option>English</option>
+            <option>Biology</option>
+            <option>Physics</option>
+            <option>Chemistry</option>
+            <option>Agricultural Science</option>
+            <option>Civic Education</option>
+          </select>
+        </label><br>
+        <label>Due Date: <input type="date" name="due_date" required></label><br>
+        <button type="submit">Post Assignment</button>
+      </form>
+    </section>
+
+    <!-- Class Reports -->
+    <section id="class-reports">
+      <h3>Student Reports</h3>
+      <p>Select a student below to add or update their academic report. Only your students are listed.</p>
+
+      <!-- Student Selection -->
+      <label for="studentSelect">Select Student:</label>
+      <select id="studentSelect" required>
+        <option value="">-- Choose Student --</option>
+        <option value="sobur">Abdul Sobur (JSS1)</option>
+        <option value="fatima">Fatima Musa (SSS2)</option>
+        <option value="muhammad">Muhammad Adamu (JSS3)</option>
+      </select>
+
+      <!-- Edit/View Student Report Section -->
+      <div id="editStudentReport">
+        <h4>📋 Edit/View Student Report</h4>
+
+        <!-- Example of one student report form -->
+        <form method="POST">
+          <label>Subject: <input type="text" name="subject" required></label><br>
+          <label>Score: <input type="number" name="score" min="0" max="100" required></label><br>
+          <label>Grade:
+            <select name="grade" required>
+              <option value="">Select</option>
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+              <option>D</option>
+              <option>F</option>
+            </select>
+          </label><br>
+          <label>Teacher's Comment:<br>
+            <textarea name="comment" required></textarea>
+          </label><br>
+          <button type="submit">Save Report</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Announcements -->
+    <section id="announcements">
+      <h3>Announcements</h3>
+      <p>Post updates related to your class or subjects here.</p>
+    </section>
+
+    <!-- School Feed -->
+    <section id="feed" class="section">
+      <h3>School Feed</h3>
+      <ul>
+        <li>📢 New uniform policy starts August 1</li>
+        <li>📢 Third term exam begins July 22</li>
+        <li>📢 Parent-Teacher meeting this Friday</li>
+      </ul>
+    </section>
+    
+    <!-- Events -->
+    <section id="events" class="section">
+      <h3>Events & Competitions</h3>
+      <p>Children’s Day Photo Contest</p>
+      <p>Time left: <span class="countdown">6d 12h</span></p>
+      <input type="file" accept="image/*,video/*" />
+      <button type="submit">Upload</button>
+    </section>
+
+    <!-- Students’ Hub (Read Only) -->
+    <section id="students-hub-view">
+      <h3>Students’ Hub (Read Only)</h3>
+      <ul>
+        <li>🎥 Musa shared: "My Agric Science Project"</li>
+        <li>📸 Fatima posted: "Most Beautiful 2025 Entry"</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>

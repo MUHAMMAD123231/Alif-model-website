@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post School Feed</title>
+</head>
+<body>
+
+  <h2>📢 Post a New Update to School Feed</h2>
+
+  <form method="POST" enctype="multipart/form-data" action="/admin/post-feed">
+    <label>Title:<br>
+      <input type="text" name="title" required>
+    </label><br><br>
+
+    <label>Message:<br>
+      <textarea name="message" rows="5" cols="50" required></textarea>
+    </label><br><br>
+
+    <label>Audience:<br>
+      <select name="audience" required>
+        <option value="">Select Audience</option>
+        <option value="students">Students Only</option>
+        <option value="teachers">Teachers Only</option>
+        <option value="all">Everyone (Students + Teachers)</option>
+      </select>
+    </label><br><br>
+
+    <label>Attach File (optional):<br>
+      <input type="file" name="attachment">
+    </label><br><br>
+
+    <button type="submit">Post to Feed</button>
+  </form>
+
+</body>
+</html>

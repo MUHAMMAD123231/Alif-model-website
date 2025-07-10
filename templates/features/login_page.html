@@ -4,21 +4,24 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/style/style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="../../static/style/style.css" type="text/css" media="all" />
 </head>
 <body>
-  <form id="login_form" action="/login" method="post" accept-charset="utf-8">
-    <h2>Portal Login</h2>
-    <label for="user_id">User ID</label>
-    <input type="text" id="user_id" name="user_id" placeholder="e.g. STU-2024-003">
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password">
-    <hr>
-    <p><strong>OR</strong> login as a guest</p>
-    <label for="invitation_code">Invitation Code</label>
-    <input type="text" id="invitation_code" name="invitation_code" placeholder="e.g. GUEST-ABC123">
-    <button type="submit">Login</button>
-  </form>
-  <p><a href="/forgot-password">Forgot Password?</a></p>
+  <div class="center-wrapper">
+    <form id="login_form" action="/login" method="post" accept-charset="utf-8">
+      <h2>Welcome Back To Your Portal</h2>
+      <label for="user_id">User ID</label>
+      <input type="text" id="user_id" name="user_id" placeholder="e.g. STU-2024-003">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+      <hr>
+      <p><strong>OR</strong> login as a guest</p>
+      <label for="invitation_code">Invitation Code</label>
+      <input type="text" id="invitation_code" name="invitation_code" placeholder="e.g. GUEST-ABC123">
+      <button type="submit">Login</button>
+      <p><a href="/forgot-password">Forgot Password?</a></p>
+      <p><a href="https://t.me/notYourAlpha01">Contact us to get an invitation code</a></p>
+    </form>
+  </div>
 </body>
 </html>

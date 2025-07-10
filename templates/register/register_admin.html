@@ -7,46 +7,48 @@
   <link rel="stylesheet" href="../../static/style/style.css">
 </head>
 <body>
-  <form id="admin_register" action="" method="post" accept-charset="utf-8">
-    <div id="admin_info">
-      <h2>Admin Registration</h2>
-      <label for="fullname">Full Name</label>
-      <input type="text" id="fullname" name="fullname" placeholder="e.g. Musa John">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="e.g. MrMusaAdmin">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="e.g. musa@gmail.com">
-      <label for="dob">Date of Birth</label>
-      <input type="date" id="dob" name="dob">
-      <label for="gender">Gender</label>
-      <select id="gender" name="gender">
-        <option value="">-- Select Gender --</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" placeholder="e.g. 08098765432">
-    </div>
-    <div id="admin_role_info">
-      <label for="role">Admin Role</label>
-      <select id="role" name="role">
-        <option value="">-- Select Role --</option>
-        <option value="principal">Principal</option>
-        <option value="bursar">Bursar</option>
-        <option value="chairman">Chairman</option>
-        <option value="super_admin">Super Admin</option>
-        <option value="moderator">Moderator</option>
-        <option value="coordinato">Co-ordinato</option>
-      </select>
-    </div>
-    <div id="admin_password">
-      <label for="password">Create Password</label>
-      <input type="password" id="password" name="password">
-      <label for="confirm_password">Confirm Password</label>
-      <input type="password" id="confirm_password" name="confirm_password">
-    </div>
-    <button type="submit">Register</button>
-  </form>
-  <p>If you're already an admin, <a href="../login_page.html">Log in here</a></p>
+  <div class="center-wrapper">
+    <form id="admin_register" action="" method="post" accept-charset="utf-8">
+      <div id="admin_info">
+        <h2>Admin Registration</h2>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="e.g. Musa John">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="e.g. MrMusaAdmin">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="e.g. musa@gmail.com">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+          <option value="">-- Select Gender --</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="e.g. 08098765432">
+      </div>
+      <div id="admin_role_info">
+        <label for="role">Admin Role</label>
+        <select id="role" name="role">
+          <option value="">-- Select Role --</option>
+          <option value="principal">Principal</option>
+          <option value="bursar">Bursar</option>
+          <option value="chairman">Chairman</option>
+          <option value="super_admin">Super Admin</option>
+          <option value="moderator">Moderator</option>
+          <option value="coordinato">Co-ordinato</option>
+        </select>
+      </div>
+      <div id="admin_password">
+        <label for="password">Create Password</label>
+        <input type="password" id="password" name="password">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password">
+      </div>
+      <button type="submit">Register</button>
+      <p>If you're already an admin, <a href="../features/login_page.html">Log in here</a></p>
+    </form>
+  </div>
 </body>
 </html>

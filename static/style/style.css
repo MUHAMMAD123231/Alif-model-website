@@ -1,3 +1,213 @@
+.center-wrapper {
+  min-height: 83vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #eef1ff, #dbe4ff);
+  padding: 1rem;
+}
+.center-wrapper #login_form {
+  max-width: 450px;
+  margin: 8vh auto;
+  padding: 3rem;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 5px 5px 2px rgb(0, 0, 0);
+}
+.center-wrapper #login_form h2 {
+  text-align: center;
+  margin-bottom: 2.3rem;
+  color: #000;
+  font-weight: bold;
+  font-size: 20px;
+}
+.center-wrapper #login_form label {
+  display: block;
+  margin-top: 1.2rem;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: #444;
+}
+.center-wrapper #login_form input {
+  width: 90%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.7rem;
+  font-size: 0.7rem;
+  font-style: italic;
+  transition: border 0.3s ease;
+  font-weight: 500;
+  box-shadow: 1.3px 1.3px 6px rgb(0, 0, 0);
+}
+.center-wrapper #login_form input:focus {
+  border-bottom: 4px solid #0000ff;
+  outline: none;
+  box-shadow: 1px 1px 8px rgba(94, 139, 255, 0.1);
+}
+.center-wrapper #login_form hr {
+  margin: 2rem 0 1rem;
+  border: none;
+  border-top: 1px solid #090450;
+}
+.center-wrapper #login_form p {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  font-weight: 300;
+}
+.center-wrapper #login_form p strong {
+  color: #666;
+}
+.center-wrapper #login_form button {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background: #120a88;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  box-shadow: 2px 1px 5px rgba(75, 63, 236, 0.6235294118);
+}
+.center-wrapper #login_form button:hover {
+  background: #5e8bff;
+}
+.center-wrapper #login_form a {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  color: rgba(24, 9, 219, 0.6274509804);
+  text-decoration: none;
+}
+.center-wrapper #login_form a:hover {
+  font-style: italic;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
 
+.center-wrapper {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #eef1ff, #dbe4ff);
+  padding: 2rem;
+}
+.center-wrapper #student_register,
+.center-wrapper #teacher_register,
+.center-wrapper #admin_register {
+  background: #ffffff;
+  width: 98%;
+  max-width: 420px;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 5px 5px 10px rgb(0, 0, 0);
+}
+.center-wrapper #student_register h2,
+.center-wrapper #teacher_register h2,
+.center-wrapper #admin_register h2 {
+  text-align: center;
+  color: #000c40;
+  margin-bottom: 1.8rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.center-wrapper #student_register label,
+.center-wrapper #teacher_register label,
+.center-wrapper #admin_register label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  color: #333;
+  font-weight: 500;
+}
+.center-wrapper #student_register input,
+.center-wrapper #student_register select,
+.center-wrapper #teacher_register input,
+.center-wrapper #teacher_register select,
+.center-wrapper #admin_register input,
+.center-wrapper #admin_register select {
+  width: 90%;
+  padding: 0.6rem 1rem;
+  border: 0.9px solid #ccc;
+  border-radius: 0.7rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 500;
+  background-color: #f9faff;
+  box-shadow: 1.6px 1.5px 3px rgb(0, 0, 0);
+  transition: border 0.2s ease;
+}
+.center-wrapper #student_register input:focus,
+.center-wrapper #student_register select:focus,
+.center-wrapper #teacher_register input:focus,
+.center-wrapper #teacher_register select:focus,
+.center-wrapper #admin_register input:focus,
+.center-wrapper #admin_register select:focus {
+  border-bottom: 3.7px solid #0056ff;
+  outline: none;
+  box-shadow: 1 1 5px rgb(0, 0, 0);
+}
+.center-wrapper #student_register button,
+.center-wrapper #teacher_register button,
+.center-wrapper #admin_register button {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.9rem;
+  background-color: #120a88;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease;
+}
+.center-wrapper #student_register button:hover,
+.center-wrapper #teacher_register button:hover,
+.center-wrapper #admin_register button:hover {
+  background-color: #5e8bff;
+}
+.center-wrapper #student_register p,
+.center-wrapper #teacher_register p,
+.center-wrapper #admin_register p {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+.center-wrapper #student_register p a,
+.center-wrapper #teacher_register p a,
+.center-wrapper #admin_register p a {
+  color: #0b4cff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.center-wrapper #student_register p a:hover,
+.center-wrapper #teacher_register p a:hover,
+.center-wrapper #admin_register p a:hover {
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  .center-wrapper #student_register,
+  .center-wrapper #teacher_register,
+  .center-wrapper #admin_register {
+    max-width: 600px;
+    padding: 2.5rem;
+    max-height: 100vh;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .center-wrapper #student_register,
+  .center-wrapper #teacher_register,
+  .center-wrapper #admin_register {
+    max-width: 750px;
+    padding: 3rem;
+    max-height: 100vh;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

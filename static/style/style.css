@@ -115,6 +115,17 @@
   font-size: 1.4rem;
   font-weight: bold;
 }
+.center-wrapper #student_register .error,
+.center-wrapper #teacher_register .error,
+.center-wrapper #admin_register .error {
+  font-size: 0.7rem;
+  color: red;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  margin-top: -0.8rem;
+  font-style: italic;
+}
 .center-wrapper #student_register label,
 .center-wrapper #teacher_register label,
 .center-wrapper #admin_register label {
@@ -210,6 +221,53 @@
   }
 }
 
+#custom-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f0f9ff;
+  color: #0c4a6e;
+  border-left: 5px solid #3b82f6;
+  border-radius: 8px;
+  padding: 16px 20px;
+  max-width: 340px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+#custom-alert.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#custom-alert.hidden {
+  display: none;
+}
+#custom-alert #alert-message {
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+#custom-alert #alert-bar {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  border-radius: 3px;
+  animation: drain 10s linear forwards;
+}
+
+@keyframes drain {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
 .discussion-container {
   background: url("../../static/images/chat-bg.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -532,6 +590,70 @@ body {
     margin-left: 0;
     padding: 1rem;
   }
+}
+.verify-wrapper {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #eee;
+}
+.verify-wrapper h2 {
+  text-align: center;
+  color: #104E8B;
+}
+.verify-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.verify-wrapper form input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+}
+.verify-wrapper form button {
+  background-color: #104E8B;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.verify-wrapper .error-msg {
+  color: red;
+  font-size: 0.9rem;
+}
+.verify-wrapper .success-box {
+  margin-top: 2rem;
+  text-align: center;
+  background-color: #e8f5e9;
+  padding: 1rem;
+  border-radius: 15px;
+  border: 2px solid rgba(49, 170, 11, 0.3764705882);
+}
+.verify-wrapper .success-box.hidden {
+  display: none;
+}
+.verify-wrapper .success-box .id-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+.verify-wrapper .success-box .id-box button {
+  background-color: #31aa0b;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

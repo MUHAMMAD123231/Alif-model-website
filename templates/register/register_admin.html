@@ -11,6 +11,7 @@
     <form id="admin_register" action="" method="post" accept-charset="utf-8">
       <div id="admin_info">
         <h2>Admin Registration</h2>
+        <p class="error"></p>
         <label for="fullname">Full Name</label>
         <input type="text" id="fullname" name="fullname" placeholder="e.g. Musa John">
         <label for="username">Username</label>
@@ -50,5 +51,9 @@
       <p>If you're already an admin, <a href="../features/login_page.html">Log in here</a></p>
     </form>
   </div>
+  <div id="custom-alert" class="hidden">
+      <span id="alert-message"></span>
+      <div id="alert-bar"></div>
+   </div>
 </body>
 </html>

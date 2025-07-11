@@ -1,10 +1,10 @@
 .verify-wrapper {
-  max-width: 400px;
-  margin: 50px auto;
+  max-width: 350px;
+  margin: 13rem auto;
   background: #fff;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 0 10px #eee;
+  padding: 1.8rem;
+  border-radius: 26px;
+  box-shadow: 8px 5px 10px rgba(0,0,0, 1.0);
 
   h2 {
     text-align: center;
@@ -18,12 +18,16 @@
 
     input {
       padding: 10px;
-      font-size: 16px;
-      border: 2px solid #ccc;
+      font-size: 13px;
+      border: 1px solid #ccc;
       border-radius: 10px;
       outline: none;
+      
+      &:focus{
+        border-bottom: 7px double #1d13bc;
+      }
     }
-
+   
     button {
       background-color: #104E8B;
       color: #fff;

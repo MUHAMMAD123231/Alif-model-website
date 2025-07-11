@@ -3,31 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../../static/style/verify_email.scss" type="text/css" media="all" />
   <title>Email Verification</title>
-  <link rel="stylesheet" href="../../static/style/style.css" />
 </head>
 <body>
-  <div class="verify-wrapper">
-    <h2>Email Verification</h2>
-    <p>We’ve sent a 6-digit code to your email. Please enter it below:</p>
-    
-    <form id="verify_form">
-      <input type="text" id="verification_code" maxlength="6" placeholder="Enter 6-digit code" required />
-      <p class="error-msg"></p>
-      <button type="submit">Verify</button>
-    </form>
+  <h2>Email Verification</h2>
+  <p>We've sent a 6-digit code to your email. Please enter it below:</p>
 
-    <div class="success-box hidden" id="success_box">
-      <h3>Email Verified ✅</h3>
-      <p>Your Student ID is:</p>
-      <div class="id-box">
-        <span id="student_id">STU123456</span>
-        <button id="copy_btn">Copy</button>
-      </div>
-      <button id="go_to_login">Go to Login</button>
-    </div>
-  </div>
+  <form id="verify_form">
+    <input type="text" id="verification_code" maxlength="6" placeholder="Enter 6-digit code" required />
+    <p class="error-msg" style="color:red;"></p>
+    <button type="submit">Verify</button>
+  </form>
 
-  <script src="../../static/js/verify_email.js"></script>
+  <!-- Make sure this JS file exists: static/js/verify_email.js -->
+  <script src="{{ url_for('static', filename='js/verify_email.js') }}"></script>
 </body>
 </html>

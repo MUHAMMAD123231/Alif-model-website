@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="../../static/style/style.css" type="text/css" media="all" />
   </head>
   <body>
+          {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
     <div class="center-wrapper">
-      <form id="student_register" action="" method="POST" accept-charset="utf-8">
+      <form id="student_register" action="/register_student" method="POST" accept-charset="utf-8">
         <div id="student_info">
           <h2>Student Registration</h2>
           <p class="error"></p>
@@ -59,10 +68,10 @@
         <p>If you're already an admin, <a href="../features/login_page.html">Log in here</a></p>
       </form>
     </div>
-    <script src="../../static/interaction/index.js" charset="utf-8"></script>
     <div id="custom-alert" class="hidden">
       <span id="alert-message"></span>
       <div id="alert-bar"></div>
     </div>
+    <script src="../../static/interaction/index.js" charset="utf-8"></script>
   </body>
 </html>

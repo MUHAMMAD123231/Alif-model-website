@@ -22,6 +22,7 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       outline: none;
+      margin-top: 12px;
       
       &:focus{
         border-bottom: 7px double #1d13bc;
@@ -45,10 +46,10 @@
   }
 
   .success-box {
-    margin-top: 2rem;
+    margin-top: 1.6rem;
     text-align: center;
     background-color: #e8f5e9;
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 15px;
     border: 2px solid #31aa0b60;
 
@@ -57,11 +58,11 @@
     }
 
     .id-box {
-      display: flex;
+      /* display: flex; */
       justify-content: center;
       align-items: center;
-      gap: 1rem;
-      font-size: 1.2rem;
+      gap: 2rem;
+      font-size: 1rem;
       margin: 1rem 0;
 
       button {

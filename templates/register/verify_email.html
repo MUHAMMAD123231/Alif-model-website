@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="../../static/style/verify_email.scss" type="text/css" media="all" />
+  <link rel="stylesheet" href="../../static/style/style.css" />
   <title>Email Verification</title>
 </head>
 <body>
-  <h2>Email Verification</h2>
-  <p>We've sent a 6-digit code to your email. Please enter it below:</p>
+  <div class="verify-wrapper">
+    <h2>Email Verification</h2>
+    <p>We've sent a 6-digit code to your email. Please enter it below:</p>
 
-  <form id="verify_form">
-    <input type="text" id="verification_code" maxlength="6" placeholder="Enter 6-digit code" required />
-    <p class="error-msg" style="color:red;"></p>
-    <button type="submit">Verify</button>
-  </form>
-
-  <!-- Make sure this JS file exists: static/js/verify_email.js -->
-  <script src="{{ url_for('static', filename='js/verify_email.js') }}"></script>
+    <form id="verify_form">
+      <input type="text" id="verification_code" maxlength="6" placeholder="Enter 6-digit code" required />
+      <p class="error-msg"></p>
+      <button type="submit">Verify</button>
+    </form>
+    <div class="success-box">
+      <p>Verification successful!</p>
+      <div class="id-box">
+      <span>Your ID: <strong>123456</strong></span>
+      <br />
+      <span class="safe">Ensure you copy it and keep it safe</span>
+  </div>
+</div>
+  </div>
 </body>
 </html>

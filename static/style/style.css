@@ -614,6 +614,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 10px;
   outline: none;
+  margin-top: 12px;
 }
 .verify-wrapper form input:focus {
   border-bottom: 7px double #1d13bc;
@@ -632,10 +633,10 @@ body {
   font-size: 0.9rem;
 }
 .verify-wrapper .success-box {
-  margin-top: 2rem;
+  margin-top: 1.6rem;
   text-align: center;
   background-color: #e8f5e9;
-  padding: 1rem;
+  padding: 0.8rem;
   border-radius: 15px;
   border: 2px solid rgba(49, 170, 11, 0.3764705882);
 }
@@ -643,11 +644,11 @@ body {
   display: none;
 }
 .verify-wrapper .success-box .id-box {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  font-size: 1.2rem;
+  gap: 2rem;
+  font-size: 1rem;
   margin: 1rem 0;
 }
 .verify-wrapper .success-box .id-box button {

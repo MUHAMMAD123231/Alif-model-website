@@ -34,6 +34,7 @@ function attachValidation(form) {
       } else if (name === "username") {
         if (!/[^A-Za-z]/.test(value) || value === "") {
           showError(input, "Username must include a symbol or number");
+          notValid = true;
         } else {
           markValid(input);
         }

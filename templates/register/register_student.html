@@ -7,15 +7,6 @@
     <link rel="stylesheet" href="../../static/style/style.css" type="text/css" media="all" />
   </head>
   <body>
-          {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <ul class="flashes">
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      {% endwith %}
     <div class="center-wrapper">
       <form id="student_register" action="/register_student" method="POST" accept-charset="utf-8">
         <div id="student_info">

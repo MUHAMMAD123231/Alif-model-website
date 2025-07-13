@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 from flask_mail import Mail, Message
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash,check_password_hash
 import sqlite3
 import uuid
 import random
@@ -302,9 +302,82 @@ def verify_email():
 
 #-- login page --
 @app.route("/features/login_page", methods=["GET", "POST"])
-def all_login():
-    return render_template("features/login_page.html")
+def login():
+    if request.method == "GET":
+        return render_template("features/login_page.html")
 
+    # DEBUG: Check form values
+    user_id = request.form.get("user_id", "").strip()
+    password = request.form.get("password", "").strip()
+    invitation_code = request.form.get("invitation_code", "").strip()
+
+    print("user_id:", user_id)
+    print("password:", password)
+    print("invitation_code:", invitation_code)
+
+    # Guest Login
+    if user_id == "" and password == "" and invitation_code:
+        print("Guest login attempt")
+        if invites(invitation_code, "guest"):
+            print("Guest code valid. Redirecting to dashboard...")
+            session["user_role"] = "guest"
+            return redirect("/dashboard/guest_dashboard")
+        else:
+            print("Guest code invalid.")
+            return """
+            <script>
+            alert("Invalid guest invitation code.");
+            window.location.href = '/features/login_page';
+            </script>
+            """
+
+    # Normal Login
+    elif user_id and password:
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+
+        # Student
+        cursor.execute("SELECT password FROM students WHERE studentId = ?", (user_id,))
+        student = cursor.fetchone()
+        if student and check_password_hash(student[0], password):
+            session["user_role"] = "student"
+            session["user_id"] = user_id
+            conn.close()
+            return redirect("/dashboard/student_dashboard")
+
+        # Teacher
+        cursor.execute("SELECT password FROM teachers WHERE teacherId = ?", (user_id,))
+        teacher = cursor.fetchone()
+        if teacher and check_password_hash(teacher[0], password):
+            session["user_role"] = "teacher"
+            session["user_id"] = user_id
+            conn.close()
+            return redirect("/dashboard/teacher_dashboard")
+
+        # Admin
+        cursor.execute("SELECT password FROM admins WHERE adminId = ?", (user_id,))
+        admin = cursor.fetchone()
+        if admin and check_password_hash(admin[0], password):
+            session["user_role"] = "admin"
+            session["user_id"] = user_id
+            conn.close()
+            return redirect("/dashboard/admin_dashboard")
+
+        conn.close()
+        return """
+        <script>
+        alert("Invalid ID or password.");
+        window.location.href = '/features/login_page';
+        </script>
+        """
+
+    else:
+        return """
+        <script>
+        alert("Please fill in the required fields.");
+        window.location.href = '/features/login_page';
+        </script>
+        """
 
 #-- classroom page --
 

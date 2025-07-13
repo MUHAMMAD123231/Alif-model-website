@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="center-wrapper">
-      <form id="student_register" action="/register_student" method="POST" accept-charset="utf-8">
+      <form id="student_register" action="/register/register_student" method="POST" accept-charset="utf-8">
         <div id="student_info">
           <h2>Student Registration</h2>
           <p class="error"></p>
@@ -53,10 +53,13 @@
 
           <label for="s_password2">Confirm Password</label>
           <input type="password" name="finalPassword" id="s_password2"/>
+          <label for="invitation_code">Invitation Code</label>
+         <input type="text" id="invitation_code" name="invitation_code" placeholder="e.g. GUEST-ABC123">
         </div>
 
         <button type="submit">Register</button>
         <p>If you're already an admin, <a href="../features/login_page">Log in here</a></p>
+        <p><a href="https://t.me/notYourAlpha01">Contact us to get an invitation code</a></p>
       </form>
     </div>
     <div id="custom-alert" class="hidden">

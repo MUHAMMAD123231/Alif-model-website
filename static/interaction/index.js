@@ -32,9 +32,14 @@ function attachValidation(form) {
           markValid(input);
         }
       } else if (name === "username") {
-        if (!/[^A-Za-z]/.test(value) || value === "") {
-          showError(input, "Username must include a symbol or number");
-          notValid = true;
+        if (!/^(?=.*[A-Za-z])(?=.*[^A-Za-z\s]).{3,}$/.test(value)) {
+          showError(input, "Username must include letters and at least one number or symbol");
+        } else {
+          markValid(input);
+        }
+      } else if (name === "invitation_code") {
+        if (value === "") {
+          showError(input, "Enter your invitation code");
         } else {
           markValid(input);
         }
@@ -103,7 +108,7 @@ function attachValidation(form) {
     }
 
     function markValid(input) {
-      input.style.borderBottom = "4px solid #31aa0b60";
+      input.style.borderBottom = "4px solid #31aa0b60"; // green
     }
   });
 }
@@ -130,3 +135,33 @@ function customAlert(message, formToReset = null) {
     allInputs?.forEach(el => el.style.borderBottom = "");
   }, 5000);
 }
+
+// login page
+document.addEventListener("DOMContentLoaded",() => {
+  const form = document.getElementById("login_form");
+  const id = document.getElementById("user_id");
+  const pass = document.getElementById("l_password");
+  const code = document.getElementById("invitation_code");
+  form.addEventListener("submit",function(a){
+    a.preventDefault();
+    if (id.value.trim() === "" && pass.value.trim() === "" && code.value.trim() === "") {
+    id.style.borderBottom = '4px solid red';
+    pass.style.borderBottom = '4px solid red';
+    code.style.borderBottom = '4px solid red';
+  }else if (id.value.trim() !== "" && pass.value.trim() === ""){
+    id.style.borderBottom = '4px solid green';
+    pass.style.borderBottom = '4px solid red';
+  }else if (id.value.trim() === "" && pass.value.trim() !== ""){
+    id.style.borderBottom = '4px solid red';
+    pass.style.borderBottom = '4px solid green';
+  }else if(id.value.trim() !== "" && pass.value.trim() !== ""){
+    id.style.borderBottom = '4px solid green';
+    pass.style.borderBottom = '4px solid green';
+    code.style.borderBottom = '4px solid green';
+  }else{
+    id.style.borderBottom = '4px solid green';
+    pass.style.borderBottom = '4px solid green';
+    code.style.borderBottom = '4px solid green';
+  }
+  });
+});

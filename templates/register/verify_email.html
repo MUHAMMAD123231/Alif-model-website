@@ -11,19 +11,12 @@
     <h2>Email Verification</h2>
     <p>We've sent a 6-digit code to your email. Please enter it below:</p>
 
-    <form id="verify_form">
-      <input type="text" id="verification_code" maxlength="6" placeholder="Enter 6-digit code" required />
-      <p class="error-msg"></p>
+    <form id="verify_form" method="POST" action="/register/verify_email">
+      <input type="text" id="verification_code" maxlength="6" placeholder="Enter your 6-digit code" name = "code" required />
       <button type="submit">Verify</button>
     </form>
-    <div class="success-box">
-      <p>Verification successful!</p>
-      <div class="id-box">
-      <span>Your ID: <strong>123456</strong></span>
-      <br />
-      <span class="safe">Ensure you copy it and keep it safe</span>
-  </div>
-</div>
+    <p>Please make sure you copy or write down your Special ID in the Alert
+    message</p>
   </div>
 </body>
 </html>

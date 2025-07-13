@@ -8,12 +8,12 @@
 </head>
 <body>
   <div class="center-wrapper">
-    <form id="login_form" action="/login" method="post" accept-charset="utf-8">
+    <form id="login_form" action="/features/login_page" method="post" accept-charset="utf-8">
       <h2>Welcome Back To Your Portal</h2>
       <label for="user_id">User ID</label>
       <input type="text" id="user_id" name="user_id" placeholder="e.g. STU-2024-003">
       <label for="password">Password</label>
-      <input type="password" id="password" name="password">
+      <input type="password" id="l_password" name="password">
       <hr>
       <p><strong>OR</strong> login as a guest</p>
       <label for="invitation_code">Invitation Code</label>
@@ -23,5 +23,6 @@
       <p><a href="https://t.me/notYourAlpha01">Contact us to get an invitation code</a></p>
     </form>
   </div>
+  <script src="../../static/interaction/index.js"></script>
 </body>
 </html>

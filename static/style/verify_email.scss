@@ -39,40 +39,9 @@
       cursor: pointer;
     }
   }
-
-  .error-msg {
-    color: red;
-    font-size: 0.9rem;
-  }
-
-  .success-box {
-    margin-top: 1.6rem;
-    text-align: center;
-    background-color: #e8f5e9;
-    padding: 0.8rem;
-    border-radius: 15px;
-    border: 2px solid #31aa0b60;
-
-    &.hidden {
-      display: none;
-    }
-
-    .id-box {
-      /* display: flex; */
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      font-size: 1rem;
-      margin: 1rem 0;
-
-      button {
-        background-color: #31aa0b;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 10px;
-        cursor: pointer;
-      }
-    }
+  p{
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: floralwhite;
   }
 }

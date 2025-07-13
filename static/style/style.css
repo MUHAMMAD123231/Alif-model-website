@@ -628,36 +628,10 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
-.verify-wrapper .error-msg {
-  color: red;
-  font-size: 0.9rem;
-}
-.verify-wrapper .success-box {
-  margin-top: 1.6rem;
-  text-align: center;
-  background-color: #e8f5e9;
-  padding: 0.8rem;
-  border-radius: 15px;
-  border: 2px solid rgba(49, 170, 11, 0.3764705882);
-}
-.verify-wrapper .success-box.hidden {
-  display: none;
-}
-.verify-wrapper .success-box .id-box {
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
+.verify-wrapper p {
   font-size: 1rem;
-  margin: 1rem 0;
-}
-.verify-wrapper .success-box .id-box button {
-  background-color: #31aa0b;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 10px;
-  cursor: pointer;
+  font-weight: 600;
+  background-color: floralwhite;
 }
 
 /*# sourceMappingURL=style.css.map */

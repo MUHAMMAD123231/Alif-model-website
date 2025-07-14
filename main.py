@@ -77,13 +77,10 @@ def register_admin():
 
     #checking invitation code
     invitation_code = request.form.get("invitation_code", "").strip()
+    invitation_code = request.form.get("invitation_code", "").strip()
     if not invitation_code or not invites(invitation_code, "admin"):
-        return """
-        <script>
-        alert("That is an Invalid invitation code. Kindly contact us.");
-        window.history.back();
-        </script>
-        """
+      return render_template("register/register_admin.html", error="That is an Invalid invitation code. Kindly contact us.")
+
 
     #hash user password before storing
     hashPassword = generate_password_hash(password)
@@ -139,13 +136,10 @@ def register_teacher():
     #-- Done getting the info ---#
     #checking invitation code
     invitation_code = request.form.get("invitation_code", "").strip()
+    invitation_code = request.form.get("invitation_code", "").strip()
     if not invitation_code or not invites(invitation_code, "teacher"):
-        return """
-        <script>
-        alert("That is an Invalid invitation code. Kindly contact us.");
-        window.history.back();
-        </script>
-        """
+      return render_template("register/register_teacher.html", error="That is an Invalid invitation code. Kindly contact us.")
+
 
     #hash user password before storing
     hashPassword = generate_password_hash(password)
@@ -202,12 +196,7 @@ def register_student():
     #checking invitation code
     invitation_code = request.form.get("invitation_code", "").strip()
     if not invitation_code or not invites(invitation_code, "student"):
-        return """
-        <script>
-        alert("That is an Invalid invitation code. Kindly contact us.");
-        window.history.back();
-        </script>
-        """
+      return render_template("register/register_student.html", error="That is an Invalid invitation code. Kindly contact us.")
 
     #hash user password before storing
     hashPassword = generate_password_hash(password)
@@ -317,9 +306,7 @@ def login():
 
     # Guest Login
     if user_id == "" and password == "" and invitation_code:
-        print("Guest login attempt")
         if invites(invitation_code, "guest"):
-            print("Guest code valid. Redirecting to dashboard...")
             session["user_role"] = "guest"
             return redirect("/dashboard/guest_dashboard")
         else:

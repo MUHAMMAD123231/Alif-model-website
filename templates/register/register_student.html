@@ -11,7 +11,9 @@
       <form id="student_register" action="/register/register_student" method="POST" accept-charset="utf-8">
         <div id="student_info">
           <h2>Student Registration</h2>
-          <p class="error"></p>
+          <p class="error" id="form-error">
+           {% if error %}{{ error }}{% endif %}
+          </p>
 
           <label for="s_lastname">Enter Your Lastname:</label>
           <input type="text" name="Lastname" id="s_lastname" placeholder="Muhammad"/>

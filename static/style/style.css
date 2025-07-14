@@ -115,9 +115,11 @@
   font-size: 1.4rem;
   font-weight: bold;
 }
-.center-wrapper #student_register .error,
+.center-wrapper #student_register .error, .center-wrapper #student_register #error,
 .center-wrapper #teacher_register .error,
-.center-wrapper #admin_register .error {
+.center-wrapper #teacher_register #error,
+.center-wrapper #admin_register .error,
+.center-wrapper #admin_register #error {
   font-size: 0.7rem;
   color: red;
   font-weight: 600;

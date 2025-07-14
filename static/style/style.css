@@ -396,16 +396,20 @@
 }
 
 body {
-  background: #e9f0f7;
-  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  background: #e9f0f7;
+  font-family: "Poppins", sans-serif;
 }
 
+.admin-dashboard,
+.teacher-dashboard,
 .student-dashboard {
   display: flex;
   min-height: 100vh;
 }
+.admin-dashboard aside,
+.teacher-dashboard aside,
 .student-dashboard aside {
   width: 240px;
   background-color: rgb(0, 63.0924855491, 147.5);
@@ -419,19 +423,35 @@ body {
   z-index: 1000;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
+.admin-dashboard aside h2,
+.teacher-dashboard aside h2,
 .student-dashboard aside h2 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.student-dashboard aside nav {
+.admin-dashboard aside nav, .admin-dashboard aside ul,
+.teacher-dashboard aside nav,
+.teacher-dashboard aside ul,
+.student-dashboard aside nav,
+.student-dashboard aside ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
   display: flex;
   flex-direction: column;
 }
-.student-dashboard aside nav li {
-  list-style: none;
+.admin-dashboard aside nav li, .admin-dashboard aside ul li,
+.teacher-dashboard aside nav li,
+.teacher-dashboard aside ul li,
+.student-dashboard aside nav li,
+.student-dashboard aside ul li {
   margin-bottom: 0.8rem;
 }
-.student-dashboard aside nav li a {
+.admin-dashboard aside nav li a, .admin-dashboard aside ul li a,
+.teacher-dashboard aside nav li a,
+.teacher-dashboard aside ul li a,
+.student-dashboard aside nav li a,
+.student-dashboard aside ul li a {
   color: white;
   text-decoration: none;
   padding: 0.6rem 0.9rem;
@@ -441,38 +461,143 @@ body {
   font-size: 15px;
   transition: background 0.3s;
 }
-.student-dashboard aside nav li a:hover {
+.admin-dashboard aside nav li a:hover, .admin-dashboard aside ul li a:hover,
+.teacher-dashboard aside nav li a:hover,
+.teacher-dashboard aside ul li a:hover,
+.student-dashboard aside nav li a:hover,
+.student-dashboard aside ul li a:hover {
   background-color: rgb(51, 149.4, 255);
 }
+.admin-dashboard main,
+.admin-dashboard .main,
+.teacher-dashboard main,
+.teacher-dashboard .main,
+.student-dashboard main,
 .student-dashboard .main {
-  margin-left: 240px;
   flex: 1;
+  margin-left: 240px;
   padding: 2rem;
 }
+.admin-dashboard main section,
+.admin-dashboard main .section,
+.admin-dashboard .main section,
+.admin-dashboard .main .section,
+.teacher-dashboard main section,
+.teacher-dashboard main .section,
+.teacher-dashboard .main section,
+.teacher-dashboard .main .section,
+.student-dashboard main section,
+.student-dashboard main .section,
+.student-dashboard .main section,
 .student-dashboard .main .section {
-  display: none;
-  margin-bottom: 3rem;
   background: white;
   padding: 1.5rem;
   border-radius: 10px;
+  margin-bottom: 2rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
 }
-.student-dashboard .main .section.active {
-  display: block;
-}
+.admin-dashboard main section h3,
+.admin-dashboard main .section h3,
+.admin-dashboard .main section h3,
+.admin-dashboard .main .section h3,
+.teacher-dashboard main section h3,
+.teacher-dashboard main .section h3,
+.teacher-dashboard .main section h3,
+.teacher-dashboard .main .section h3,
+.student-dashboard main section h3,
+.student-dashboard main .section h3,
+.student-dashboard .main section h3,
 .student-dashboard .main .section h3 {
-  margin-bottom: 1rem;
   font-size: 1.4rem;
   color: #004aad;
+  margin-bottom: 1rem;
   border-bottom: 2px solid #007bff;
   padding-bottom: 0.5rem;
 }
+.admin-dashboard main section table,
+.admin-dashboard main .section table,
+.admin-dashboard .main section table,
+.admin-dashboard .main .section table,
+.teacher-dashboard main section table,
+.teacher-dashboard main .section table,
+.teacher-dashboard .main section table,
+.teacher-dashboard .main .section table,
+.student-dashboard main section table,
+.student-dashboard main .section table,
+.student-dashboard .main section table,
+.student-dashboard .main .section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.admin-dashboard main section table th, .admin-dashboard main section table td,
+.admin-dashboard main .section table th,
+.admin-dashboard main .section table td,
+.admin-dashboard .main section table th,
+.admin-dashboard .main section table td,
+.admin-dashboard .main .section table th,
+.admin-dashboard .main .section table td,
+.teacher-dashboard main section table th,
+.teacher-dashboard main section table td,
+.teacher-dashboard main .section table th,
+.teacher-dashboard main .section table td,
+.teacher-dashboard .main section table th,
+.teacher-dashboard .main section table td,
+.teacher-dashboard .main .section table th,
+.teacher-dashboard .main .section table td,
+.student-dashboard main section table th,
+.student-dashboard main section table td,
+.student-dashboard main .section table th,
+.student-dashboard main .section table td,
+.student-dashboard .main section table th,
+.student-dashboard .main section table td,
+.student-dashboard .main .section table th,
+.student-dashboard .main .section table td {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+}
+.admin-dashboard main section table th,
+.admin-dashboard main .section table th,
+.admin-dashboard .main section table th,
+.admin-dashboard .main .section table th,
+.teacher-dashboard main section table th,
+.teacher-dashboard main .section table th,
+.teacher-dashboard .main section table th,
+.teacher-dashboard .main .section table th,
+.student-dashboard main section table th,
+.student-dashboard main .section table th,
+.student-dashboard .main section table th,
+.student-dashboard .main .section table th {
+  background: #dcefff;
+}
+.admin-dashboard main section .stat-grid,
+.admin-dashboard main .section .stat-grid,
+.admin-dashboard .main section .stat-grid,
+.admin-dashboard .main .section .stat-grid,
+.teacher-dashboard main section .stat-grid,
+.teacher-dashboard main .section .stat-grid,
+.teacher-dashboard .main section .stat-grid,
+.teacher-dashboard .main .section .stat-grid,
+.student-dashboard main section .stat-grid,
+.student-dashboard main .section .stat-grid,
+.student-dashboard .main section .stat-grid,
 .student-dashboard .main .section .stat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1rem;
 }
+.admin-dashboard main section .stat-grid .stat,
+.admin-dashboard main .section .stat-grid .stat,
+.admin-dashboard .main section .stat-grid .stat,
+.admin-dashboard .main .section .stat-grid .stat,
+.teacher-dashboard main section .stat-grid .stat,
+.teacher-dashboard main .section .stat-grid .stat,
+.teacher-dashboard .main section .stat-grid .stat,
+.teacher-dashboard .main .section .stat-grid .stat,
+.student-dashboard main section .stat-grid .stat,
+.student-dashboard main .section .stat-grid .stat,
+.student-dashboard .main section .stat-grid .stat,
 .student-dashboard .main .section .stat-grid .stat {
   background: rgb(178.5, 215.4, 255);
   padding: 1rem;
@@ -480,15 +605,83 @@ body {
   text-align: center;
   font-weight: bold;
 }
-.student-dashboard .main .section form,
-.student-dashboard .main .section table {
+.admin-dashboard main section .assignment-box,
+.admin-dashboard main section .calendar-placeholder,
+.admin-dashboard main .section .assignment-box,
+.admin-dashboard main .section .calendar-placeholder,
+.admin-dashboard .main section .assignment-box,
+.admin-dashboard .main section .calendar-placeholder,
+.admin-dashboard .main .section .assignment-box,
+.admin-dashboard .main .section .calendar-placeholder,
+.teacher-dashboard main section .assignment-box,
+.teacher-dashboard main section .calendar-placeholder,
+.teacher-dashboard main .section .assignment-box,
+.teacher-dashboard main .section .calendar-placeholder,
+.teacher-dashboard .main section .assignment-box,
+.teacher-dashboard .main section .calendar-placeholder,
+.teacher-dashboard .main .section .assignment-box,
+.teacher-dashboard .main .section .calendar-placeholder,
+.student-dashboard main section .assignment-box,
+.student-dashboard main section .calendar-placeholder,
+.student-dashboard main .section .assignment-box,
+.student-dashboard main .section .calendar-placeholder,
+.student-dashboard .main section .assignment-box,
+.student-dashboard .main section .calendar-placeholder,
+.student-dashboard .main .section .assignment-box,
+.student-dashboard .main .section .calendar-placeholder {
+  background: #eef5ff;
+  padding: 1rem;
+  border-radius: 8px;
   margin-top: 1rem;
-  width: 100%;
 }
+.admin-dashboard main section label,
+.admin-dashboard main .section label,
+.admin-dashboard .main section label,
+.admin-dashboard .main .section label,
+.teacher-dashboard main section label,
+.teacher-dashboard main .section label,
+.teacher-dashboard .main section label,
+.teacher-dashboard .main .section label,
+.student-dashboard main section label,
+.student-dashboard main .section label,
+.student-dashboard .main section label,
 .student-dashboard .main .section label {
   display: block;
   margin-bottom: 0.8rem;
 }
+.admin-dashboard main section label input,
+.admin-dashboard main section label select,
+.admin-dashboard main section label textarea,
+.admin-dashboard main .section label input,
+.admin-dashboard main .section label select,
+.admin-dashboard main .section label textarea,
+.admin-dashboard .main section label input,
+.admin-dashboard .main section label select,
+.admin-dashboard .main section label textarea,
+.admin-dashboard .main .section label input,
+.admin-dashboard .main .section label select,
+.admin-dashboard .main .section label textarea,
+.teacher-dashboard main section label input,
+.teacher-dashboard main section label select,
+.teacher-dashboard main section label textarea,
+.teacher-dashboard main .section label input,
+.teacher-dashboard main .section label select,
+.teacher-dashboard main .section label textarea,
+.teacher-dashboard .main section label input,
+.teacher-dashboard .main section label select,
+.teacher-dashboard .main section label textarea,
+.teacher-dashboard .main .section label input,
+.teacher-dashboard .main .section label select,
+.teacher-dashboard .main .section label textarea,
+.student-dashboard main section label input,
+.student-dashboard main section label select,
+.student-dashboard main section label textarea,
+.student-dashboard main .section label input,
+.student-dashboard main .section label select,
+.student-dashboard main .section label textarea,
+.student-dashboard .main section label input,
+.student-dashboard .main section label select,
+.student-dashboard .main section label textarea,
 .student-dashboard .main .section label input,
 .student-dashboard .main .section label select,
 .student-dashboard .main .section label textarea {
@@ -498,20 +691,64 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+.admin-dashboard main section fieldset,
+.admin-dashboard main .section fieldset,
+.admin-dashboard .main section fieldset,
+.admin-dashboard .main .section fieldset,
+.teacher-dashboard main section fieldset,
+.teacher-dashboard main .section fieldset,
+.teacher-dashboard .main section fieldset,
+.teacher-dashboard .main .section fieldset,
+.student-dashboard main section fieldset,
+.student-dashboard main .section fieldset,
+.student-dashboard .main section fieldset,
 .student-dashboard .main .section fieldset {
   margin-bottom: 2rem;
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 8px;
 }
+.admin-dashboard main section fieldset legend,
+.admin-dashboard main .section fieldset legend,
+.admin-dashboard .main section fieldset legend,
+.admin-dashboard .main .section fieldset legend,
+.teacher-dashboard main section fieldset legend,
+.teacher-dashboard main .section fieldset legend,
+.teacher-dashboard .main section fieldset legend,
+.teacher-dashboard .main .section fieldset legend,
+.student-dashboard main section fieldset legend,
+.student-dashboard main .section fieldset legend,
+.student-dashboard .main section fieldset legend,
 .student-dashboard .main .section fieldset legend {
   font-weight: bold;
   color: #004aad;
 }
+.admin-dashboard main section .form-buttons,
+.admin-dashboard main .section .form-buttons,
+.admin-dashboard .main section .form-buttons,
+.admin-dashboard .main .section .form-buttons,
+.teacher-dashboard main section .form-buttons,
+.teacher-dashboard main .section .form-buttons,
+.teacher-dashboard .main section .form-buttons,
+.teacher-dashboard .main .section .form-buttons,
+.student-dashboard main section .form-buttons,
+.student-dashboard main .section .form-buttons,
+.student-dashboard .main section .form-buttons,
 .student-dashboard .main .section .form-buttons {
   display: flex;
   gap: 1rem;
 }
+.admin-dashboard main section .form-buttons button,
+.admin-dashboard main .section .form-buttons button,
+.admin-dashboard .main section .form-buttons button,
+.admin-dashboard .main .section .form-buttons button,
+.teacher-dashboard main section .form-buttons button,
+.teacher-dashboard main .section .form-buttons button,
+.teacher-dashboard .main section .form-buttons button,
+.teacher-dashboard .main .section .form-buttons button,
+.student-dashboard main section .form-buttons button,
+.student-dashboard main .section .form-buttons button,
+.student-dashboard .main section .form-buttons button,
 .student-dashboard .main .section .form-buttons button {
   padding: 0.6rem 1.2rem;
   background-color: #004aad;
@@ -520,41 +757,22 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+.admin-dashboard main section .form-buttons button:hover,
+.admin-dashboard main .section .form-buttons button:hover,
+.admin-dashboard .main section .form-buttons button:hover,
+.admin-dashboard .main .section .form-buttons button:hover,
+.teacher-dashboard main section .form-buttons button:hover,
+.teacher-dashboard main .section .form-buttons button:hover,
+.teacher-dashboard .main section .form-buttons button:hover,
+.teacher-dashboard .main .section .form-buttons button:hover,
+.student-dashboard main section .form-buttons button:hover,
+.student-dashboard main .section .form-buttons button:hover,
+.student-dashboard .main section .form-buttons button:hover,
 .student-dashboard .main .section .form-buttons button:hover {
   background-color: rgb(0, 52.1849710983, 122);
 }
-.student-dashboard .main .section .assignment-box {
-  background: rgb(204, 228.6, 255);
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-.student-dashboard .main .section .assignment-box textarea {
-  width: 100%;
-  min-height: 80px;
-  margin-top: 0.5rem;
-  border-radius: 5px;
-}
-.student-dashboard .main .section .calendar-placeholder {
-  background: #eef5ff;
-  text-align: center;
-  padding: 2rem;
-  border-radius: 8px;
-  font-size: 1.2rem;
-}
-.student-dashboard .main .section .course-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.student-dashboard .main .section .course-table th,
-.student-dashboard .main .section .course-table td {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  text-align: left;
-}
-.student-dashboard .main .section .course-table th {
-  background: #dcefff;
-}
+.admin-dashboard .mobile-header,
+.teacher-dashboard .mobile-header,
 .student-dashboard .mobile-header {
   display: none;
   background-color: #004aad;
@@ -563,6 +781,8 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.admin-dashboard .mobile-header .hamburger,
+.teacher-dashboard .mobile-header .hamburger,
 .student-dashboard .mobile-header .hamburger {
   font-size: 1.5rem;
   background: none;
@@ -572,12 +792,18 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .admin-dashboard,
+  .teacher-dashboard,
   .student-dashboard {
     flex-direction: column;
   }
+  .admin-dashboard .mobile-header,
+  .teacher-dashboard .mobile-header,
   .student-dashboard .mobile-header {
     display: flex;
   }
+  .admin-dashboard aside,
+  .teacher-dashboard aside,
   .student-dashboard aside {
     position: absolute;
     width: 100%;
@@ -585,14 +811,30 @@ body {
     transform: translateY(-100%);
     transition: transform 0.3s ease-in-out;
   }
+  .admin-dashboard aside.active,
+  .teacher-dashboard aside.active,
   .student-dashboard aside.active {
     transform: translateY(0);
   }
+  .admin-dashboard main,
+  .admin-dashboard .main,
+  .teacher-dashboard main,
+  .teacher-dashboard .main,
+  .student-dashboard main,
   .student-dashboard .main {
     margin-left: 0;
     padding: 1rem;
   }
 }
+.section {
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.section.active {
+  display: block;
+}
+
 .verify-wrapper {
   max-width: 350px;
   margin: 13rem auto;

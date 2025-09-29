@@ -24,7 +24,7 @@ def verification_code(email):
     session["verify_code"] = str(code)
     session["user_email"] = email
 
-    #create massage body 
+    #create massage body
     Gmail_msg = Message("Alif Model Group Of School",
                         sender=app.config["MAIL_USERNAME"],
                         recipients=[email])
@@ -38,8 +38,7 @@ Thank you!
 """
     mail.send(Gmail_msg)
 
-
-# creating invitation code for all type of user 
+# creating invitation code for all type of user
 invitationCode = {
     "admin": ["ADM/33/QE-YY", "YYE-ADM//2C2C", "RRT*#&MM2", "ADM(A33(", "2B3BKS6BW8"],
     "guest": ["HEHE698W", "HSHHWY28", "C90BW582", "VS-+S792", "12GUST66YEU"],
@@ -101,7 +100,7 @@ def register_admin():
         <script>
         alert("username alread exit , choose or create new one")
         window.location.href = "/register/register_admin"
-        </script> 
+        </script>
         """
 
     #execute cursor
@@ -160,7 +159,7 @@ def register_teacher():
         <script>
         alert("username alread exit , choose or create new one")
         window.location.href = "/register/register_teacher"
-        </script> 
+        </script>
         """
 
     #execute cursor
@@ -192,7 +191,7 @@ def register_student():
     Class = request.form.get("class")
     password = request.form.get("initialPassword")
     #-- Done getting the info ---#
-    
+
     #checking invitation code
     invitation_code = request.form.get("invitation_code", "").strip()
     if not invitation_code or not invites(invitation_code, "student"):
@@ -217,7 +216,7 @@ def register_student():
         <script>
         alert("username alread exit , choose or create new one")
         window.location.href = "/register/register_student"
-        </script> 
+        </script>
         """
 
     #execute cursor

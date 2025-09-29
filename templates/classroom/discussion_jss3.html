@@ -12,27 +12,14 @@
     <h2>Welcome to Class Discussion Forum</h2>
   </header>
 
-  <section id="chat_area">
-    <div class="chat-message student">
-      <strong>@student:</strong> What’s the assignment?
-      <small>9:45 AM</small>
-    </div>
-    <div class="chat-message teacher">
-      <strong>Teacher Mariam 👩‍🏫:</strong> Read chapter 5 of Civic.
-      <small>9:46 AM</small>
-    </div>
-  </section>
+  <div id="chat-box" class="chat-box"></div>
+  <div class="chat-input-row">
+    <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" />
+    <button id="chat-send" class="send-btn">💬</button>
+  </div>
 
-  <form id="message_form" method="POST" enctype="multipart/form-data" action="/post-message/jss1">
-    <div class="chat-input-row">
-      <label for="attachment" class="attach-icon">📎</label>
-      <input type="file" name="attachment" id="attachment" accept="*/*">
-
-      <input type="text" name="message" id="message" placeholder="Type a message..." required>
-
-      <button type="submit" class="send-btn">💬</button>
-    </div>
-  </form>
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="../../static/interaction/chat.js"></script>
 
 </body>
 </html>

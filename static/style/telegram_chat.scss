@@ -1,0 +1,306 @@
+// Telegram Header
+.telegram-header {
+  display: flex;
+  align-items: center;
+  background: #0088cc;
+  color: #fff;
+  padding: 1rem 2vw;
+  border-bottom: 1px solid #e3e6ea;
+}
+.tg-header-left {
+  display: flex;
+  align-items: center;
+}
+.tg-profile-pic {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.tg-header-info {
+  display: flex;
+  flex-direction: column;
+}
+.tg-contact-name {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+}
+.tg-status {
+  font-size: 0.98rem;
+  color: #d0f6ff;
+}
+// Chat History
+.telegram-chat-history {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 90px;
+}
+// Input Row
+.telegram-input-row {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: #f5f7fa;
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 2vw;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+  z-index: 10;
+}
+// Input field longest, buttons small
+.telegram-input {
+  flex: 1 1 0;
+  padding: 0.8rem 1rem;
+  border-radius: 18px;
+  border: 1px solid #ccc;
+  font-size: 1.08rem;
+  margin: 0 0.5vw;
+  background: #fff;
+  min-width: 0;
+  max-width: 100%;
+}
+.tg-emoji-btn, .tg-attach-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 0.5vw;
+  cursor: pointer;
+  color: #888;
+  padding: 0.3rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+  min-width: 32px;
+  max-width: 32px;
+  height: 32px;
+}
+.tg-emoji-btn:hover, .tg-attach-btn:hover {
+  background: #e3e6ea;
+}
+// Make send button round, visible, and beside input
+.telegram-send-btn {
+  background: #0088cc;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.3vw;
+  box-shadow: 0 2px 8px rgba(0,136,204,0.10);
+}
+.telegram-send-btn svg {
+  display: block;
+  margin: auto;
+}
+.telegram-send-btn:disabled {
+  background: #b3e0f7;
+  cursor: not-allowed;
+}
+.telegram-send-btn:disabled svg {
+  opacity: 0.5;
+}
+.telegram-send-btn:not(:disabled):hover {
+  background: #005e99;
+}
+@media (max-width: 600px) {
+  .telegram-header {
+    padding: 0.7rem 2vw;
+  }
+  .tg-profile-pic {
+    width: 36px;
+    height: 36px;
+    margin-right: 0.7rem;
+  }
+  .telegram-input-row {
+    padding: 0.5rem 1vw;
+  }
+  .telegram-input {
+    font-size: 1rem;
+    padding: 0.7rem 1vw;
+  }
+}
+// Telegram Chat Interface Styles for Discussion Classroom
+// Telegram Chat Fullscreen Layout
+.tg-bg {
+  background: linear-gradient(135deg, #e3e6ea 0%, #cfd9df 100%);
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+.tg-chat-container {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.tg-chat-header {
+  display: flex;
+  align-items: center;
+  background: #0088cc;
+  color: #fff;
+  padding: 1rem 2vw;
+  position: relative;
+}
+.tg-chat-title {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+.tg-chat-avatar {
+  font-size: 2rem;
+  margin-right: 0.7rem;
+}
+.tg-chat-room {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.tg-chat-box {
+  background: #f5f7fa;
+  flex: 1;
+  padding: 1.2rem 2vw 1.2rem 2vw;
+  min-height: 0;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.tg-chat-message {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.8rem;
+  max-width: 80%;
+  word-break: break-word;
+  flex-wrap: wrap;
+}
+// Message bubbles: username above, text below
+.tg-chat-message.user {
+  align-self: flex-end;
+  background: #cce6ff;
+  border-radius: 18px 18px 0 18px;
+  padding: 0.5rem 0.9rem;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  max-width: 80vw;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.7rem;
+}
+.tg-chat-message.other {
+  align-self: flex-start;
+  background: #fff;
+  border-radius: 18px 18px 18px 0;
+  padding: 0.5rem 0.9rem;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  max-width: 80vw;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.7rem;
+}
+.tg-chat-message .tg-chat-avatar {
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+}
+.tg-chat-message .tg-chat-username {
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 0.2rem;
+  color: #0088cc;
+}
+.tg-chat-message .tg-chat-text {
+  font-size: 1.08rem;
+  color: #222;
+  margin-bottom: 0.2rem;
+}
+.tg-chat-message small {
+  color: #888;
+  font-size: 0.92rem;
+  align-self: flex-end;
+}
+// Input row sticks to bottom, full width
+.tg-chat-input-row {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 2vw;
+  background: #e3e6ea;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  z-index: 2;
+}
+.tg-chat-input {
+  flex: 1;
+  padding: 1.1rem 1.2rem;
+  border-radius: 18px;
+  border: 1px solid #ccc;
+  font-size: 1.25rem;
+  margin-right: 1vw;
+  background: #fff;
+  min-width: 0;
+}
+.tg-send-btn {
+  background: #0088cc;
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 1.1rem 1.6rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,136,204,0.12);
+  transition: background 0.2s;
+  min-width: 56px;
+}
+.tg-send-btn:hover {
+  background: #005e99;
+}
+@media (max-width: 600px) {
+  .tg-chat-container {
+    max-width: 100vw;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+  }
+  .tg-chat-header {
+    padding: 0.7rem 2vw;
+  }
+  .tg-chat-box {
+    padding: 0.7rem 2vw 0.7rem 2vw;
+    font-size: 1rem;
+    max-height: calc(100vh - 110px);
+  }
+  .tg-chat-input-row {
+    padding: 0.7rem 2vw;
+  }
+  .tg-chat-input {
+    font-size: 1.1rem;
+    padding: 0.7rem 1vw;
+    margin-right: 1vw;
+  }
+  .tg-send-btn {
+    font-size: 1.3rem;
+    padding: 0.7rem 1vw;
+    min-width: 44px;
+  }
+}

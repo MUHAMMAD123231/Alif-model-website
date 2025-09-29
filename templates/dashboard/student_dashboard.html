@@ -30,7 +30,20 @@
         <li><a href="#feed">📢 School Feed</a></li>
         <li><a href="#events">🎉 Events</a></li>
         <li><a href="#hub">👥 Student Hub</a></li>
-        <li><a href="#comments">💬 Teacher Comments</a></li>
+  <li><a href="#comments">💬 Teacher Comments</a></li>
+  {% if class_forum %}
+    {% set clean_class = class_forum|lower|replace(' ', '') %}
+    {% set valid_forums = ['jss1', 'jss2', 'jss3', 'sss1', 'sss2', 'sss3'] %}
+    {% set forum_route = None %}
+    {% if clean_class in valid_forums %}
+      {% set forum_route = '/classroom/discussion_' + clean_class %}
+    {% endif %}
+    {% if forum_route %}
+      <li><a href="{{ forum_route }}">🗨️ Class Forum ({{ clean_class|upper }})</a></li>
+    {% else %}
+      <li><span style="color: #888;">🗨️ No valid class forum found</span></li>
+    {% endif %}
+  {% endif %}
       </nav>
     </aside>
 

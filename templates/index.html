@@ -6,20 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alif Model Academy</title>
   <link rel="stylesheet" href="../static/style/style.css"/>
+  <lin
 </head>
 <body>
   <header>
-    <img src="images/logo.png" alt="School Logo" class="logo">
+    <img src="../static/images/sch logo.jpeg" alt="School Logo" class="logo">
     <nav>
       <ul class="nav-links">
-        <a href="/dashboard/admin_dashboard">Home</a>
+          <li><a href="/dashboard/admin_dashboard">Home</a></li>
         <li><a href="/register/verify_email">About</a></li>
         <li><a href="/register/register_teacher">Courses</a></li>
         <li><a href="/register/register_student">Contact</a></li>
       </ul>
     </nav>
   </header>
-
+  <section class="main">
   <section class="hero">
     <h1>Welcome to Alif Model Academy</h1>
     <p>Academic and Moral Excellence</p>
@@ -31,10 +32,28 @@
   </section>
   <section class="info">
     <h2>Our Vision</h2>
-    <p>lorem1000</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam sunt optio, accusantium eos autem suscipit sint veniam at ullam amet asperiores quos nesciunt rerum facere officia voluptatum id aut. Exercitationem molestiae tenetur itaque provident perferendis iste vel incidunt? Itaque unde magnam reprehenderit adipisci eaque explicabo, autem reiciendis assumenda facere dolorem est necessitatibus consequatur rem placeat totam, at earum porro? Voluptatum maxime error temporibus laudantium voluptate! Eaque fugiat, eligendi maxime pariatur, fugit obcaecati at itaque et numquam tempora necessitatibus harum distinctio soluta similique aperiam delectus sapiente nemo enim ad labore. Quibusdam dignissimos ducimus fugiat ab obcaecati odit sit provident sunt nemo!</p>
+  </section>
   </section>
 
   <footer>
+    <script>
+      // Observe sections with class 'info'
+      const infos = document.querySelectorAll('.info');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show'); // add animation class
+            observer.unobserve(entry.target);   // run only once
+          }
+        });
+      }, { threshold: 0.2 }); // trigger when 20% visible
+
+      infos.forEach(info => {
+        observer.observe(info);
+      });
+    </script>
     <p>&copy; 2025 Alif Model Academy. All Rights Reserved.</p>
   </footer>
 </body>

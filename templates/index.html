@@ -1,19 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alif Model Academy</title>
-  <link rel="stylesheet" href="../static/style/style.css"/>
-  <lin
+  <link rel="stylesheet" href="../static/style/style.css" />
+  <link rel="stylesheet" href="../static/style/index.css">
 </head>
+
 <body>
   <header>
     <img src="../static/images/sch logo.jpeg" alt="School Logo" class="logo">
     <nav>
       <ul class="nav-links">
-          <li><a href="/dashboard/admin_dashboard">Home</a></li>
+        <li><a href="/dashboard/admin_dashboard">Home</a></li>
         <li><a href="/register/verify_email">About</a></li>
         <li><a href="/register/register_teacher">Courses</a></li>
         <li><a href="/register/register_student">Contact</a></li>
@@ -21,19 +22,57 @@
     </nav>
   </header>
   <section class="main">
-  <section class="hero">
-    <h1>Welcome to Alif Model Academy</h1>
-    <p>Academic and Moral Excellence</p>
-  </section>
+    <video autoplay muted loop id="bg-video" poster="../static/images/sch logo.jpeg">
+      <source src="../static/images/output.mp4" type="video/mp4">
+      <img src="../static/images/sch logo.jpeg" alt="Background Fallback">
+    </video>
 
-  <section class="info">
-    <h2>Our Mission</h2>
-    <p>To nurture students to become responsible, confident, and globally-minded citizens.</p>
+    <section class="hero">
+      <h1>Welcome to Alif Model Academy</h1>
+      <p>Academic and Moral Excellence</p>
+    </section>
+
+    <section class="info">
+      <h2>Our Mission</h2>
+      <p>To nurture students to become responsible, confident, and globally-minded citizens.</p>
+    </section>
+    <section class="info">
+      <h2>Our Vision</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam sunt optio, accusantium eos autem suscipit
+        sint veniam at ullam amet asperiores quos nesciunt rerum facere officia voluptatum id aut. Exercitationem
+        molestiae tenetur itaque provident perferendis iste vel incidunt? Itaque unde magnam reprehenderit adipisci
+        eaque explicabo, autem reiciendis assumenda facere dolorem est necessitatibus consequatur rem placeat totam, at
+        earum porro? Voluptatum maxime error temporibus laudantium voluptate! Eaque fugiat, eligendi maxime pariatur,
+        fugit obcaecati at itaque et numquam tempora necessitatibus harum distinctio soluta similique aperiam delectus
+        sapiente nemo enim ad labore. Quibusdam dignissimos ducimus fugiat ab obcaecati odit sit provident sunt nemo!
+      </p>
+    </section>
   </section>
-  <section class="info">
-    <h2>Our Vision</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam sunt optio, accusantium eos autem suscipit sint veniam at ullam amet asperiores quos nesciunt rerum facere officia voluptatum id aut. Exercitationem molestiae tenetur itaque provident perferendis iste vel incidunt? Itaque unde magnam reprehenderit adipisci eaque explicabo, autem reiciendis assumenda facere dolorem est necessitatibus consequatur rem placeat totam, at earum porro? Voluptatum maxime error temporibus laudantium voluptate! Eaque fugiat, eligendi maxime pariatur, fugit obcaecati at itaque et numquam tempora necessitatibus harum distinctio soluta similique aperiam delectus sapiente nemo enim ad labore. Quibusdam dignissimos ducimus fugiat ab obcaecati odit sit provident sunt nemo!</p>
-  </section>
+  <!-- Teacher Remarks Section -->
+  <!-- Teacher Remarks Section -->
+  <section class="remarks">
+    <h2>Teacher Remarks</h2>
+    <div class="remarks-container">
+
+      <div class="remark-card">
+        <img src="../static/images/images/mrhamed.jpg" alt="Teacher 1">
+        <h3>Mr.Ahmed</h3>
+        <p>Our goal is to inspire students to achieve excellence in both academics and character.</p>
+      </div>
+
+      <div class="remark-card">
+        <img src="../static/images/images/mrsaremu.jpg" alt="Teacher 2">
+        <h3>Mrs.Aremu</h3>
+        <p>Every child has the potential to shine — we are here to guide them.</p>
+      </div>
+
+      <div class="remark-card">
+        <img src="../static/images/images/mrsjunide.jpg" alt="Teacher 3">
+        <h3>Mrs.Junaid</h3>
+        <p>We believe in holistic education that builds character and knowledge together.</p>
+      </div>
+
+    </div>
   </section>
 
   <footer>
@@ -54,7 +93,9 @@
         observer.observe(info);
       });
     </script>
+
     <p>&copy; 2025 Alif Model Academy. All Rights Reserved.</p>
   </footer>
 </body>
+
 </html>

@@ -13,25 +13,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   links.forEach(link => {
     link.addEventListener("click", function (e) {
-      e.preventDefault();
+      const targetId = this.getAttribute("href");
 
-      const targetId = this.getAttribute("href"); // like "#overview"
-      const targetSection = dashboard.querySelector(targetId); // ✅ search inside dashboard only
+      // ✅ Only intercept if it's an in-page anchor (starts with "#")
+      if (targetId && targetId.startsWith("#")) {
+        e.preventDefault();
 
-      // Hide all sections
-      sections.forEach(section => {
-        section.classList.remove("active");
-      });
+        const targetSection = dashboard.querySelector(targetId);
 
-      // Show only the selected one
-      if (targetSection) {
-        targetSection.classList.add("active");
+        // Hide all sections
+        sections.forEach(section => {
+          section.classList.remove("active");
+        });
+
+        // Show only the selected one
+        if (targetSection) {
+          targetSection.classList.add("active");
+        }
+
+        // Close sidebar on mobile
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove("active");
+        }
       }
-
-      // Close sidebar on mobile
-      if (window.innerWidth <= 768) {
-        sidebar.classList.remove("active");
-      }
+      // Else: if it's a normal link (/classroom/...), let it work normally 🚀
     });
   });
 

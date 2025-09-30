@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ class_display }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+</head>
+<body data-room="{{ chat_room }}" data-username="{{ chat_username }}" data-role="{{ user_role }}">
+
+  <header>
+    <h2>Welcome to {{ class_display }}</h2>
+  </header>
+
+  <section id="chat_area">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <img src="{{ url_for('static', filename='images/chat-bg.jpg') }}" alt="Profile" class="chat-profile-pic" />
+        <div class="chat-header-info">
+          <div class="chat-room-name">{{ class_display }}</div>
+          <div class="chat-status">Online</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chat-box" class="chat-history"></div>
+
+    <div class="chat-input-row">
+      <button class="chat-emoji-btn" title="Emoji">😊</button>
+      <button class="chat-attach-btn" title="Attach">
+        <svg width="22" height="22" viewBox="0 0 24 24">
+          <path d="M17.657 6.343a6 6 0 0 0-8.485 0l-5.657 5.657a6 6 0 0 0 8.485 8.485l7.071-7.071a4 4 0 0 0-5.657-5.657l-6.364 6.364a2 2 0 0 0 2.828 2.828l5.657-5.657"
+                fill="none" stroke="#888" stroke-width="2"/>
+        </svg>
+      </button>
+      <input type="text" id="chat-input" class="chat-input" placeholder="Message" autocomplete="off" />
+      <button id="chat-send" class="chat-send-btn" disabled>
+        <svg width="28" height="28" viewBox="0 0 24 24">
+          <path fill="#0088cc" d="M2 21l21-9-21-9v7l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="{{ url_for('static', filename='interaction/chat.js') }}"></script>
+
+</body>
+</html>

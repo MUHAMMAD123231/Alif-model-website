@@ -1,3 +1,7 @@
+<video class="background-video" autoplay loop muted playsinline>
+  <source src="/static/images/output.mp4" type="video/mp4">
+</video>
+<div class="background-overlay"></div>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,7 @@
       <button id="hamburger" class="hamburger">☰</button>
       <h2>Student Dashboard</h2>
     </header>
-  
+
     <!-- Sidebar -->
     <aside>
       <h2>Student Dashboard</h2>
@@ -26,13 +30,26 @@
         <li><a href="#feed">📢 School Feed</a></li>
         <li><a href="#events">🎉 Events</a></li>
         <li><a href="#hub">👥 Student Hub</a></li>
-        <li><a href="#comments">💬 Teacher Comments</a></li>
+  <li><a href="#comments">💬 Teacher Comments</a></li>
+  {% if class_forum %}
+  {% set clean_class = class_forum|lower|replace(' ', '') %}
+  {% set valid_forums = ['jss1', 'jss2', 'jss3', 'sss1', 'sss2', 'sss3'] %}
+  {% if clean_class in valid_forums %}
+    <li>
+      <a href="{{ url_for('classroom.discussion', level=clean_class) }}">
+        🗨️ Class Forum ({{ clean_class|upper }})
+      </a>
+    </li>
+  {% else %}
+    <li><span style="color: #888;">🗨️ No valid class forum found</span></li>
+  {% endif %}
+{% endif %}
       </nav>
     </aside>
-  
+
     <!-- Main Content -->
     <div class="main">
-  
+
       <!-- Overview -->
       <section id="overview" class="section">
         <h3>Welcome, Abdul Sobur</h3>
@@ -43,17 +60,17 @@
           <div class="stat">5 Days to Exams</div>
         </div>
       </section>
-  
+
       <section id="bio" class="section">
     <h3>My Bio Data</h3>
-  
+
     <!-- ⚠️ Warning Message -->
     <div class="warning-box">
       ⚠️ <strong>IMPORTANT:</strong> All fields are required. No mistakes will be accepted. Please fill carefully as this will be used for official school records.
     </div>
-  
+
     <form id="biodata-form">
-  
+
       <!-- 1️⃣ PERSONAL INFORMATION -->
       <fieldset>
         <legend>1️⃣ Personal Information</legend>
@@ -72,7 +89,7 @@
         <label>LGA: <input type="text" name="lga" required /></label>
         <label>Passport Photo: <input type="file" name="passport" accept="image/*" required /></label>
       </fieldset>
-  
+
       <!-- 2️⃣ CONTACT & ADDRESS -->
       <fieldset>
         <legend>2️⃣ Contact & Address</legend>
@@ -83,7 +100,7 @@
         <label>Student Phone: <input type="tel" name="student_phone" required /></label>
         <label>Student Email: <input type="email" name="student_email" required /></label>
       </fieldset>
-  
+
       <!-- 3️⃣ GUARDIAN DETAILS -->
       <fieldset>
         <legend>3️⃣ Guardian Details</legend>
@@ -104,20 +121,20 @@
         <label>Email Address: <input type="email" name="guardian_email" required /></label>
         <label>Occupation: <input type="text" name="guardian_occupation" required /></label>
         <label>Home/Office Address: <input type="text" name="guardian_address" required /></label>
-  
+
         <h4>Secondary Guardian</h4>
         <label>Full Name: <input type="text" name="guardian2_name" required /></label>
         <label>Relationship: <input type="text" name="guardian2_relationship" required /></label>
         <label>Phone Number: <input type="tel" name="guardian2_phone" required /></label>
         <label>Email: <input type="email" name="guardian2_email" required /></label>
         <label>Occupation: <input type="text" name="guardian2_occupation" required /></label>
-  
+
         <h4>Emergency Contact</h4>
         <label>Full Name: <input type="text" name="emergency_name" required /></label>
         <label>Relationship to Student: <input type="text" name="emergency_relation" required /></label>
         <label>Phone Number: <input type="tel" name="emergency_phone" required /></label>
       </fieldset>
-  
+
       <!-- 4️⃣ HEALTH INFORMATION -->
       <fieldset>
         <legend>4️⃣ Health Information</legend>
@@ -144,7 +161,7 @@
         <label>Chronic Conditions: <input type="text" name="conditions" required /></label>
         <label>Special Needs: <input type="text" name="special_needs" required /></label>
       </fieldset>
-  
+
       <!-- 5️⃣ ACADEMIC BACKGROUND -->
       <fieldset>
         <legend>5️⃣ Academic Background</legend>
@@ -159,25 +176,25 @@
           </select>
         </label>
       </fieldset>
-  
+
       <!-- 6️⃣ INTERESTS -->
       <fieldset>
         <legend>6️⃣ Interests</legend>
         <label>Hobbies: <input type="text" name="hobbies" required /></label>
         <label>Preferred School Clubs: <input type="text" name="clubs" required /></label>
       </fieldset>
-  
+
       <!-- Buttons -->
       <div class="form-buttons">
         <button type="submit">Submit</button>
         <button type="button" id="view-bio-btn">View</button>
       </div>
-  
+
     </form>
   </section>
-  
-  
-  
+
+
+
       <!-- Courses -->
       <section id="courses" class="section">
         <h3>My Courses & Performance</h3>
@@ -212,7 +229,7 @@
           </tbody>
         </table>
       </section>
-  
+
       <!-- Calendar -->
       <section id="calendar" class="section">
         <h3>School Calendar</h3>
@@ -221,7 +238,7 @@
           📅 Real calendar will be integrated here
         </div>
       </section>
-  
+
       <!-- Assignments -->
       <section id="assignments" class="section">
         <h3>Assignments</h3>
@@ -242,7 +259,7 @@
           </form>
         </div>
       </section>
-  
+
       <!-- School Feed -->
       <section id="feed" class="section">
         <h3>School Feed</h3>
@@ -252,7 +269,7 @@
           <li>📢 Parent-Teacher meeting this Friday</li>
         </ul>
       </section>
-  
+
       <!-- Events -->
       <section id="events" class="section">
         <h3>Events & Competitions</h3>
@@ -261,7 +278,7 @@
         <input type="file" accept="image/*,video/*" />
         <button type="submit">Upload</button>
       </section>
-  
+
       <!-- Hub -->
       <section id="hub" class="section">
         <h3>Students’ Hub</h3>
@@ -270,7 +287,7 @@
         <textarea placeholder="Say something fun..."></textarea>
         <button type="submit">Post</button>
       </section>
-  
+
       <!-- Teacher Comments -->
       <section id="comments" class="section">
         <h3>Teacher Comments</h3>

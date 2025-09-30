@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Python environment
+sqlite-tools.zip
+sqlite-tools/
+
+# Database
+*.db
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Sass/SCSS output
+static/style/style.css
+static/style/style.css.map
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Environment files
+.env

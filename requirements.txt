@@ -1,0 +1,7 @@
+Flask
+Flask-SocketIO
+Flask-Mail
+Werkzeug
+Jinja2
+itsdangerous
+python-dotenv

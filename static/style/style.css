@@ -1,3 +1,334 @@
+.telegram-header {
+  display: flex;
+  align-items: center;
+  background: #0088cc;
+  color: #fff;
+  padding: 1rem 2vw;
+  border-bottom: 1px solid #e3e6ea;
+}
+
+.tg-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.tg-profile-pic {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tg-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tg-contact-name {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+}
+
+.tg-status {
+  font-size: 0.98rem;
+  color: #d0f6ff;
+}
+
+.telegram-chat-history {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 90px;
+}
+
+.telegram-input-row {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: #f5f7fa;
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 2vw;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+  z-index: 10;
+}
+
+.telegram-input {
+  flex: 1 1 0;
+  padding: 0.8rem 1rem;
+  border-radius: 18px;
+  border: 1px solid #ccc;
+  font-size: 1.08rem;
+  margin: 0 0.5vw;
+  background: #fff;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.tg-emoji-btn, .tg-attach-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 0.5vw;
+  cursor: pointer;
+  color: #888;
+  padding: 0.3rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+  min-width: 32px;
+  max-width: 32px;
+  height: 32px;
+}
+
+.tg-emoji-btn:hover, .tg-attach-btn:hover {
+  background: #e3e6ea;
+}
+
+.telegram-send-btn {
+  background: #0088cc;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.3vw;
+  box-shadow: 0 2px 8px rgba(0, 136, 204, 0.1);
+}
+
+.telegram-send-btn svg {
+  display: block;
+  margin: auto;
+}
+
+.telegram-send-btn:disabled {
+  background: #b3e0f7;
+  cursor: not-allowed;
+}
+
+.telegram-send-btn:disabled svg {
+  opacity: 0.5;
+}
+
+.telegram-send-btn:not(:disabled):hover {
+  background: #005e99;
+}
+
+@media (max-width: 600px) {
+  .telegram-header {
+    padding: 0.7rem 2vw;
+  }
+  .tg-profile-pic {
+    width: 36px;
+    height: 36px;
+    margin-right: 0.7rem;
+  }
+  .telegram-input-row {
+    padding: 0.5rem 1vw;
+  }
+  .telegram-input {
+    font-size: 1rem;
+    padding: 0.7rem 1vw;
+  }
+}
+.tg-bg {
+  background: linear-gradient(135deg, #e3e6ea 0%, #cfd9df 100%);
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.tg-chat-container {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.tg-chat-header {
+  display: flex;
+  align-items: center;
+  background: #0088cc;
+  color: #fff;
+  padding: 1rem 2vw;
+  position: relative;
+}
+
+.tg-chat-title {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.tg-chat-avatar {
+  font-size: 2rem;
+  margin-right: 0.7rem;
+}
+
+.tg-chat-room {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.tg-chat-box {
+  background: #f5f7fa;
+  flex: 1;
+  padding: 1.2rem 2vw 1.2rem 2vw;
+  min-height: 0;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tg-chat-message {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.8rem;
+  max-width: 80%;
+  word-break: break-word;
+  flex-wrap: wrap;
+}
+
+.tg-chat-message.user {
+  align-self: flex-end;
+  background: #cce6ff;
+  border-radius: 18px 18px 0 18px;
+  padding: 0.5rem 0.9rem;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  max-width: 80vw;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.7rem;
+}
+
+.tg-chat-message.other {
+  align-self: flex-start;
+  background: #fff;
+  border-radius: 18px 18px 18px 0;
+  padding: 0.5rem 0.9rem;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  max-width: 80vw;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.7rem;
+}
+
+.tg-chat-message .tg-chat-avatar {
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+}
+
+.tg-chat-message .tg-chat-username {
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 0.2rem;
+  color: #0088cc;
+}
+
+.tg-chat-message .tg-chat-text {
+  font-size: 1.08rem;
+  color: #222;
+  margin-bottom: 0.2rem;
+}
+
+.tg-chat-message small {
+  color: #888;
+  font-size: 0.92rem;
+  align-self: flex-end;
+}
+
+.tg-chat-input-row {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 2vw;
+  background: #e3e6ea;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.tg-chat-input {
+  flex: 1;
+  padding: 1.1rem 1.2rem;
+  border-radius: 18px;
+  border: 1px solid #ccc;
+  font-size: 1.25rem;
+  margin-right: 1vw;
+  background: #fff;
+  min-width: 0;
+}
+
+.tg-send-btn {
+  background: #0088cc;
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 1.1rem 1.6rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 136, 204, 0.12);
+  transition: background 0.2s;
+  min-width: 56px;
+}
+
+.tg-send-btn:hover {
+  background: #005e99;
+}
+
+@media (max-width: 600px) {
+  .tg-chat-container {
+    max-width: 100vw;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+  }
+  .tg-chat-header {
+    padding: 0.7rem 2vw;
+  }
+  .tg-chat-box {
+    padding: 0.7rem 2vw 0.7rem 2vw;
+    font-size: 1rem;
+    max-height: calc(100vh - 110px);
+  }
+  .tg-chat-input-row {
+    padding: 0.7rem 2vw;
+  }
+  .tg-chat-input {
+    font-size: 1.1rem;
+    padding: 0.7rem 1vw;
+    margin-right: 1vw;
+  }
+  .tg-send-btn {
+    font-size: 1.3rem;
+    padding: 0.7rem 1vw;
+    min-width: 44px;
+  }
+}
 .center-wrapper {
   min-height: 83vh;
   display: flex;
@@ -270,6 +601,308 @@
     width: 0%;
   }
 }
+.tg-chat-container {
+  background: #e3e6ea;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  max-width: 480px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tg-chat-header {
+  display: flex;
+  align-items: center;
+  background: #0088cc;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  position: relative;
+}
+
+.tg-chat-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+.tg-chat-title {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.tg-chat-avatar {
+  font-size: 2rem;
+  margin-right: 0.7rem;
+}
+
+.tg-chat-room {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.tg-chat-box {
+  background: #f5f7fa;
+  flex: 1;
+  padding: 1rem;
+  height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.tg-chat-message {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.8rem;
+  max-width: 80%;
+}
+
+.tg-chat-message.user {
+  align-self: flex-end;
+  background: #cce6ff;
+  border-radius: 16px 16px 0 16px;
+  padding: 0.7rem 1.1rem;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.tg-chat-message.other {
+  align-self: flex-start;
+  background: #fff;
+  border-radius: 16px 16px 16px 0;
+  padding: 0.7rem 1.1rem;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.tg-chat-message .tg-chat-avatar {
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+}
+
+.tg-chat-message small {
+  color: #888;
+  margin-left: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.tg-chat-input-row {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  background: #e3e6ea;
+}
+
+.tg-chat-input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+  margin-right: 0.7rem;
+  background: #fff;
+}
+
+.tg-send-btn {
+  background: #0088cc;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 136, 204, 0.12);
+  transition: background 0.2s;
+}
+
+.tg-send-btn:hover {
+  background: #005e99;
+}
+
+@media (max-width: 600px) {
+  .tg-chat-container {
+    max-width: 99vw;
+    margin: 0.5rem auto;
+    border-radius: 0;
+  }
+  .tg-chat-header {
+    padding: 0.6rem 0.7rem;
+  }
+  .tg-chat-box {
+    padding: 0.5rem;
+    height: 180px;
+    font-size: 0.98rem;
+  }
+  .tg-chat-input-row {
+    padding: 0.5rem 0.5rem;
+  }
+  .tg-chat-input {
+    font-size: 1rem;
+    padding: 0.5rem 0.7rem;
+    margin-right: 0.4rem;
+  }
+  .tg-send-btn {
+    font-size: 1.1rem;
+    padding: 0.5rem 0.7rem;
+  }
+}
+.chat-box {
+  background: #ece5dd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.2rem;
+  max-width: 600px;
+  margin: 2rem auto 1rem auto;
+  height: 350px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 700px) {
+  .chat-box {
+    max-width: 98vw;
+    height: 250px;
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+  .chat-input-row {
+    max-width: 98vw;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  #chat-input {
+    font-size: 1rem;
+    padding: 0.6rem 0.8rem;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  #chat-send {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.7rem 0;
+  }
+  .chat-message {
+    font-size: 0.98rem;
+    margin-bottom: 0.5rem;
+  }
+  .chat-avatar {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+}
+.chat-message {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.7rem;
+}
+
+.chat-avatar {
+  font-size: 1.5rem;
+  margin-right: 0.7rem;
+}
+
+.student-msg {
+  background: #fff;
+  border-radius: 8px 8px 8px 0;
+  padding: 0.7rem 1rem;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  margin-left: 2.2rem;
+}
+
+.teacher-msg {
+  background: #d1f0e6;
+  border-radius: 8px 8px 0 8px;
+  padding: 0.7rem 1rem;
+  color: #0a4d3c;
+  font-weight: 600;
+  margin-right: 2.2rem;
+}
+
+.admin-msg {
+  background: #ffeeba;
+  border-radius: 8px 8px 8px 8px;
+  padding: 0.7rem 1rem;
+  color: #856404;
+  font-weight: 600;
+  margin-right: 2.2rem;
+}
+
+.chat-status {
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.chat-input-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+  margin-right: 0.7rem;
+  background: #f7f7f7;
+}
+
+#chat-send {
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37, 211, 102, 0.12);
+  transition: background 0.2s;
+}
+
+#chat-send:hover {
+  background: #128c7e;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.7;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 74, 173, 0.25) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -665,7 +1298,8 @@ body {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.admin-dashboard aside nav, .admin-dashboard aside ul,
+.admin-dashboard aside nav,
+.admin-dashboard aside ul,
 .teacher-dashboard aside nav,
 .teacher-dashboard aside ul,
 .student-dashboard aside nav,
@@ -676,14 +1310,16 @@ body {
   display: flex;
   flex-direction: column;
 }
-.admin-dashboard aside nav li, .admin-dashboard aside ul li,
+.admin-dashboard aside nav li,
+.admin-dashboard aside ul li,
 .teacher-dashboard aside nav li,
 .teacher-dashboard aside ul li,
 .student-dashboard aside nav li,
 .student-dashboard aside ul li {
   margin-bottom: 0.8rem;
 }
-.admin-dashboard aside nav li a, .admin-dashboard aside ul li a,
+.admin-dashboard aside nav li a,
+.admin-dashboard aside ul li a,
 .teacher-dashboard aside nav li a,
 .teacher-dashboard aside ul li a,
 .student-dashboard aside nav li a,
@@ -697,7 +1333,8 @@ body {
   font-size: 15px;
   transition: background 0.3s;
 }
-.admin-dashboard aside nav li a:hover, .admin-dashboard aside ul li a:hover,
+.admin-dashboard aside nav li a:hover,
+.admin-dashboard aside ul li a:hover,
 .teacher-dashboard aside nav li a:hover,
 .teacher-dashboard aside ul li a:hover,
 .student-dashboard aside nav li a:hover,
@@ -767,7 +1404,8 @@ body {
   border-collapse: collapse;
   margin-top: 1rem;
 }
-.admin-dashboard main section table th, .admin-dashboard main section table td,
+.admin-dashboard main section table th,
+.admin-dashboard main section table td,
 .admin-dashboard main .section table th,
 .admin-dashboard main .section table td,
 .admin-dashboard .main section table th,

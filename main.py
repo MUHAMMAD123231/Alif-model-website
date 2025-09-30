@@ -1,12 +1,15 @@
 from flask import Flask, render_template, request, url_for, redirect, session
+from flask_socketio import SocketIO, emit, join_room, leave_room
 from flask_mail import Mail, Message
 from werkzeug.security import generate_password_hash,check_password_hash
 import sqlite3
 import uuid
 import random
 
+
 app = Flask(__name__, template_folder="templates")
 app.secret_key = "abdulsobur#muhammad"
+socketio = SocketIO(app)
 
 #----setting --- the --- config --- gmail
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
@@ -24,7 +27,7 @@ def verification_code(email):
     session["verify_code"] = str(code)
     session["user_email"] = email
 
-    #create massage body 
+    #create massage body
     Gmail_msg = Message("Alif Model Group Of School",
                         sender=app.config["MAIL_USERNAME"],
                         recipients=[email])
@@ -38,10 +41,9 @@ Thank you!
 """
     mail.send(Gmail_msg)
 
-
-# creating invitation code for all type of user 
+# creating invitation code for all type of user
 invitationCode = {
-    "admin": ["ADM/33/QE-YY", "YYE-ADM//2C2C", "RRT*#&MM2", "ADM(A33(", "2B3BKS6BW8"],
+    "admin": ["ADYYE-ADM//2C2C", "RRT*#&MM2", "ADM(A33(", "2B3BKS6BW8"],
     "guest": ["HEHE698W", "HSHHWY28", "C90BW582", "VS-+S792", "12GUST66YEU"],
     "teacher": ["TCH/737/EE", "TCH/77/99/ER", "TCH-990#GE", "A-TCH/636/EC", "AHSH/88/YEY"],
     "student": ["STU/637/ERH", "ADN/STU/3737", "STU-3Y-YEYE6", "STU+636/HSU", "CSP/ITS/629"]
@@ -101,7 +103,7 @@ def register_admin():
         <script>
         alert("username alread exit , choose or create new one")
         window.location.href = "/register/register_admin"
-        </script> 
+        </script>
         """
 
     #execute cursor
@@ -160,7 +162,7 @@ def register_teacher():
         <script>
         alert("username alread exit , choose or create new one")
         window.location.href = "/register/register_teacher"
-        </script> 
+        </script>
         """
 
     #execute cursor
@@ -192,7 +194,7 @@ def register_student():
     Class = request.form.get("class")
     password = request.form.get("initialPassword")
     #-- Done getting the info ---#
-    
+
     #checking invitation code
     invitation_code = request.form.get("invitation_code", "").strip()
     if not invitation_code or not invites(invitation_code, "student"):
@@ -217,7 +219,7 @@ def register_student():
         <script>
         alert("username alread exit , choose or create new one")
         window.location.href = "/register/register_student"
-        </script> 
+        </script>
         """
 
     #execute cursor
@@ -371,32 +373,183 @@ def login():
 # --& Jss1 ---&
 @app.route("/classroom/discussion_jss1")
 def jss1():
-    return render_template("classroom/discussion_jss1.html")
+    user_role = session.get("user_role")
+    user_id = session.get("user_id")
+    username = None
+    room = "jss1"
+    if user_role == "student":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT firstname, lastname, class FROM students WHERE studentId = ?", (user_id,))
+        student = cursor.fetchone()
+        if student:
+            username = f"{student[0]} {student[1]}"
+            room = student[2].lower() if student[2] else room
+        conn.close()
+    elif user_role == "teacher":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT fullname, subject FROM teachers WHERE teacherId = ?", (user_id,))
+        teacher = cursor.fetchone()
+        if teacher:
+            username = teacher[0]
+        conn.close()
+    elif user_role == "admin":
+        username = "Admin"
+    else:
+        return redirect(url_for('login'))
+    return render_template("classroom/discussion_jss1.html", chat_username=username, chat_room=room, user_role=user_role)
 
 # --& Jss2 ---&
 @app.route("/classroom/discussion_jss2")
 def jss2():
-    return render_template("classroom/discussion_jss2.html")
+    # Same logic as jss1, but room = "jss2"
+    user_role = session.get("user_role")
+    user_id = session.get("user_id")
+    username = None
+    room = "jss2"
+    if user_role == "student":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT firstname, lastname, class FROM students WHERE studentId = ?", (user_id,))
+        student = cursor.fetchone()
+        if student:
+            username = f"{student[0]} {student[1]}"
+            room = student[2].lower() if student[2] else room
+        conn.close()
+    elif user_role == "teacher":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT fullname, subject FROM teachers WHERE teacherId = ?", (user_id,))
+        teacher = cursor.fetchone()
+        if teacher:
+            username = teacher[0]
+        conn.close()
+    elif user_role == "admin":
+        username = "Admin"
+    else:
+        return redirect(url_for('login'))
+    return render_template("classroom/discussion_jss2.html", chat_username=username, chat_room=room, user_role=user_role)
 
 # --& Jss3 ---&
 @app.route("/classroom/discussion_jss3")
 def jss3():
-    return render_template("classroom/discussion_jss3.html")
+    user_role = session.get("user_role")
+    user_id = session.get("user_id")
+    username = None
+    room = "jss3"
+    if user_role == "student":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT firstname, lastname, class FROM students WHERE studentId = ?", (user_id,))
+        student = cursor.fetchone()
+        if student:
+            username = f"{student[0]} {student[1]}"
+            room = student[2].lower() if student[2] else room
+        conn.close()
+    elif user_role == "teacher":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT fullname, subject FROM teachers WHERE teacherId = ?", (user_id,))
+        teacher = cursor.fetchone()
+        if teacher:
+            username = teacher[0]
+        conn.close()
+    elif user_role == "admin":
+        username = "Admin"
+    else:
+        return redirect(url_for('login'))
+    return render_template("classroom/discussion_jss3.html", chat_username=username, chat_room=room, user_role=user_role)
 
 # --& sss1 ---&
 @app.route("/classroom/discussion_sss1")
 def sss1():
-    return render_template("classroom/discussion_sss1.html")
+    user_role = session.get("user_role")
+    user_id = session.get("user_id")
+    username = None
+    room = "sss1"
+    if user_role == "student":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT firstname, lastname, class FROM students WHERE studentId = ?", (user_id,))
+        student = cursor.fetchone()
+        if student:
+            username = f"{student[0]} {student[1]}"
+            room = student[2].lower() if student[2] else room
+        conn.close()
+    elif user_role == "teacher":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT fullname, subject FROM teachers WHERE teacherId = ?", (user_id,))
+        teacher = cursor.fetchone()
+        if teacher:
+            username = teacher[0]
+        conn.close()
+    elif user_role == "admin":
+        username = "Admin"
+    else:
+        return redirect(url_for('login'))
+    return render_template("classroom/discussion_sss1.html", chat_username=username, chat_room=room, user_role=user_role)
 
 # --& sss2 ---&
 @app.route("/classroom/discussion_sss2")
 def sss2():
-    return render_template("classroom/discussion_sss2.html")
+    user_role = session.get("user_role")
+    user_id = session.get("user_id")
+    username = None
+    room = "sss2"
+    if user_role == "student":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT firstname, lastname, class FROM students WHERE studentId = ?", (user_id,))
+        student = cursor.fetchone()
+        if student:
+            username = f"{student[0]} {student[1]}"
+            room = student[2].lower() if student[2] else room
+        conn.close()
+    elif user_role == "teacher":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT fullname, subject FROM teachers WHERE teacherId = ?", (user_id,))
+        teacher = cursor.fetchone()
+        if teacher:
+            username = teacher[0]
+        conn.close()
+    elif user_role == "admin":
+        username = "Admin"
+    else:
+        return redirect(url_for('login'))
+    return render_template("classroom/discussion_sss2.html", chat_username=username, chat_room=room, user_role=user_role)
 
 # --& sss3 ---&
 @app.route("/classroom/discussion_sss3")
 def sss3():
-    return render_template("classroom/discussion_sss3.html")
+    user_role = session.get("user_role")
+    user_id = session.get("user_id")
+    username = None
+    room = "sss3"
+    if user_role == "student":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT firstname, lastname, class FROM students WHERE studentId = ?", (user_id,))
+        student = cursor.fetchone()
+        if student:
+            username = f"{student[0]} {student[1]}"
+            room = student[2].lower() if student[2] else room
+        conn.close()
+    elif user_role == "teacher":
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT fullname, subject FROM teachers WHERE teacherId = ?", (user_id,))
+        teacher = cursor.fetchone()
+        if teacher:
+            username = teacher[0]
+        conn.close()
+    elif user_role == "admin":
+        username = "Admin"
+    else:
+        return redirect(url_for('login'))
+    return render_template("classroom/discussion_sss3.html", chat_username=username, chat_room=room, user_role=user_role)
 
 
 # --& admin dashboard ---&
@@ -412,7 +565,17 @@ def teacher_dashboard():
 # --& student dashboard ---&
 @app.route("/dashboard/student_dashboard")
 def student_dashboard():
-    return render_template("dashboard/student_dashboard.html")
+    user_id = session.get("user_id")
+    class_forum = None
+    if user_id:
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT class FROM students WHERE studentId = ?", (user_id,))
+        result = cursor.fetchone()
+        if result and result[0]:
+            class_forum = result[0].lower()
+        conn.close()
+    return render_template("dashboard/student_dashboard.html", class_forum=class_forum)
 
 # --& guest dashboard ---&
 @app.route("/dashboard/guest_dashboard")
@@ -420,5 +583,26 @@ def guest_dashboard():
     return render_template("dashboard/guest_dashboard.html")
 
 
+@socketio.on('join')
+def handle_join(data):
+    room = data.get('room')
+    username = data.get('username')
+    join_room(room)
+    emit('status', {'msg': f'{username} has joined the chat.'}, room=room)
+
+@socketio.on('leave')
+def handle_leave(data):
+    room = data.get('room')
+    username = data.get('username')
+    leave_room(room)
+    emit('status', {'msg': f'{username} has left the chat.'}, room=room)
+
+@socketio.on('send_message')
+def handle_send_message(data):
+    room = data.get('room')
+    username = data.get('username')
+    message = data.get('message')
+    emit('receive_message', {'username': username, 'message': message}, room=room)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    socketio.run(app, debug=True)

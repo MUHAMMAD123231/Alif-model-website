@@ -19,10 +19,12 @@ def create_app():
     from .routes.dashboard import dashboard_bp
     from .routes.classroom import classroom_bp
     from .routes.home import home_bp
+    from .routes.about import about_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(classroom_bp)
     app.register_blueprint(home_bp)
+    app.register_blueprint(about_bp)
 
     return app

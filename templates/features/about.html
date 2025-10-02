@@ -1,31 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>About Us - Alif Model Academy</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="stylesheet" href="../../static/style/index.css">
+  <link rel="stylesheet" href="../../static/style/style.css">
+  <link rel="stylesheet" href="../../static/style/about.css">
 </head>
+
 <body>
+
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay muted loop>
+      <source src="../../static/videos/background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Header -->
   <header>
-    <img src="images/logo.png" alt="School Logo" class="logo">
+    <img src="../../static/images/student/logo1.jpg" alt="School Logo" class="logo">
+    <img src="../../static/images/student/logo2.jpg" alt="School Logo" class="logo">
     <nav>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../../templates/index.html">Home</a></li>
+        <li><a href="../../templates/features/about.html">About</a></li>
+        <li><a href="/register/register_teacher">Courses</a></li>
+        <li><a href="/register/register_student">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="content">
-    <h1>About Us</h1>
-    <p>Founded in 2017, My School has been a beacon of learning and leadership for young minds.</p>
-    <p>We offer a rich curriculum, experienced faculty, and a wide range of extracurricular activities.</p>
+  <!-- Vision, Mission, Motto, About -->
+  <section id="vision-mission">
+    <div class="card vision-card">
+      <h2>Our Vision</h2>
+      <p>To nurture students into global leaders who excel in knowledge, character, and service to humanity.</p>
+    </div>
+    <div class="card mission-card">
+      <h2>Our Mission</h2>
+      <p>To provide holistic education that inspires critical thinking, creativity, and lifelong learning through
+        excellence in teaching and innovation.</p>
+    </div>
+    <div class="card motto-card">
+      <h2>Our Motto</h2>
+      <p>Moral and Academic Excellence</p>
+    </div>
+    <div class="card school-card">
+      <h2>About Us</h2>
+      <p>Founded in 2017, My School has been a beacon of learning and leadership for young minds.</p>
+      <p>We offer a rich curriculum, experienced faculty, and a wide range of extracurricular activities.</p>
+    </div>
+    <div class="card values-card">
+      <h2>Our Core Values</h2>
+      <ul>
+        <li>Integrity</li>
+        <li>Discipline</li>
+        <li>Respect</li>
+        <li>Creativity</li>
+        <li>Excellence</li>
+        <li>Service to Humanity</li>
+      </ul>
+    </div>
+    <div class="card objectives-card">
+      <h2>Our Objectives</h2>
+      <p>To raise disciplined and well-rounded individuals by providing a balanced education that promotes academic
+        achievement, moral values, and life skills necessary for the future.</p>
+    </div>
   </section>
 
+  <!-- School Sections -->
+  <section id="school-sections">
+    <div class="card section-card preprimary">
+      <h2>Pre-Primary</h2>
+      <p>We provide a warm and stimulating environment for our youngest learners, nurturing curiosity and creativity
+        through play-based learning.</p>
+    </div>
+    <div class="card section-card primary">
+      <h2>Primary</h2>
+      <p>Our primary section builds strong academic foundations, instills discipline, and encourages teamwork, preparing
+        students for higher learning.</p>
+    </div>
+    <div class="card section-card secondary">
+      <h2>Secondary</h2>
+      <p>The secondary section develops critical thinking, leadership, and moral excellence while preparing students for
+        national and international opportunities.</p>
+    </div>
+  </section>
+
+  <!-- Student Remarks -->
+  <section id="remarks">
+    <h2>Student Remarks</h2>
+    <div class="remarks-grid">
+      <div class="card remark-card">
+        <img src="../../static/images/student/1.jpg" alt="Ayan">
+        <p>“This school gave me confidence and inspired me to dream big.”</p>
+        <cite>– Ayan, Jss2</cite>
+      </div>
+      <div class="card remark-card">
+        <img src="../../static/images/student/2.jpg" alt="David">
+        <p>“I love how the teachers support us not just in academics, but also in life.”</p>
+        <cite>– David, Grade 8</cite>
+      </div>
+      <div class="card remark-card">
+        <img src="../../static/images/student/5.jpg" alt="Mary">
+        <p>“The labs and library are amazing; I discovered my love for science here.”</p>
+        <cite>– Mary, Grade 10</cite>
+      </div>
+      <div class="card remark-card">
+        <img src="../../static/images/student/6.jpg" alt="John">
+        <p>“This school is like a second home; I made lifelong friends here.”</p>
+        <cite>– John, Grade 7</cite>
+      </div>
+      <div class="card remark-card">
+        <img src="../../static/images/student/IMG_20250930_101255_287.jpg" alt="Fatima">
+        <p>“Our school encourages creativity and leadership, preparing us for the future.”</p>
+        <cite>– Fatima, Grade 11</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teacher's Corner -->
+  <section id="teachers-corner">
+    <h2>Teacher's Corner</h2>
+    <div class="teachers-grid">
+      <div class="card teacher-card">
+        <img src="../../static/images/images/mrhamed.jpg" alt="Mr. Ahmed">
+        <blockquote>“Education is the most powerful weapon which you can use to change the world.”</blockquote>
+        <cite>– Mr. Ahmed</cite>
+      </div>
+      <div class="card teacher-card">
+        <img src="../../static/images/images/mrsabdulrahamn.jpg" alt="Mrs. Abdul Ganiu">
+        <blockquote>“Our goal is to inspire students to think critically and act responsibly.”</blockquote>
+        <cite>– Mrs. Abdul Ganiu</cite>
+      </div>
+      <div class="card teacher-card">
+        <img src="../../static/images/images/mrsadetunji.jpg" alt="Ms. Adetunji">
+        <blockquote>“Every child is a different kind of flower, together they make a beautiful garden.”</blockquote>
+        <cite>– Ms. Adetunji</cite>
+      </div>
+      <div class="card teacher-card">
+        <img src="../../static/images/images/mrsaremu.jpg" alt="Mrs. Aremu">
+        <blockquote>“Learning never stops, we grow every day with our students.”</blockquote>
+        <cite>– Mrs. Aremu</cite>
+      </div>
+      <div class="card teacher-card">
+        <img src="../../static/images/images/mrsayoola.jpg" alt="Mrs. Ayoola">
+        <blockquote>“Discipline is the bridge between goals and accomplishment.”</blockquote>
+        <cite>– Mrs. Ayoola</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Alif Model Academy</p>
+    <p>&copy; 2025 Alif Model Academy. All Rights Reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Teachers Corner slideshow
+    let currentIndex = 0;
+    const cards = document.querySelectorAll(".teacher-card");
+
+    function showSlide(index) {
+      cards.forEach((card, i) => {
+        card.classList.remove("active");
+        if (i === index) card.classList.add("active");
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % cards.length;
+      showSlide(currentIndex);
+    }
+
+    showSlide(currentIndex);
+    setInterval(nextSlide, 4000);
+
+    // Hamburger toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
 </body>
+
 </html>

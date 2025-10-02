@@ -1,53 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+ <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alif Model Academy</title>
-  <link rel="stylesheet" href="../static/style/style.css" />
+  <title>About - Alif Model Academy</title>
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../../static/style/style.css">
+  <link rel="stylesheet" href="../../static/style/about.css">
 </head>
 
 <body>
+  <!-- Header -->
   <header>
-    <img src="../static/images/sch logo.jpeg" alt="School Logo" class="logo">
+    <div class="logo-container">
+      <img src="../../static/images/student/logo1.jpg" alt="School Logo" class="logo">
+      <img src="../../static/images/student/logo2.jpg" alt="School Logo" class="logo">
+    </div>
+
     <nav>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <ul class="nav-links">
-        <li><a href="/dashboard/admin_dashboard">Home</a></li>
-        <li><a href="/register/verify_email">About</a></li>
+        <li><a href="../../templates/index.html">Home</a></li>
+        <li><a href="../../templates/features/about.html">About</a></li>
         <li><a href="/register/register_teacher">Courses</a></li>
         <li><a href="/register/register_student">Contact</a></li>
       </ul>
     </nav>
   </header>
-  <section class="main">
-    <video autoplay muted loop id="bg-video" poster="../static/images/sch logo.jpeg">
-      <source src="../static/images/output.mp4" type="video/mp4">
-      <img src="../static/images/sch logo.jpeg" alt="Background Fallback">
-    </video>
 
-    <section class="hero">
-      <h1>Welcome to Alif Model Academy</h1>
-      <p>Academic and Moral Excellence</p>
-    </section>
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg-video" poster="../static/images/sch logo.jpeg">
+    <source src="../static/images/output.mp4" type="video/mp4">
+    <!-- Fallback image is handled by poster -->
+  </video>
 
-    <section class="info">
-      <h2>Our Mission</h2>
-      <p>To nurture students to become responsible, confident, and globally-minded citizens.</p>
-    </section>
-    <section class="info">
-      <h2>Our Vision</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam sunt optio, accusantium eos autem suscipit
-        sint veniam at ullam amet asperiores quos nesciunt rerum facere officia voluptatum id aut. Exercitationem
-        molestiae tenetur itaque provident perferendis iste vel incidunt? Itaque unde magnam reprehenderit adipisci
-        eaque explicabo, autem reiciendis assumenda facere dolorem est necessitatibus consequatur rem placeat totam, at
-        earum porro? Voluptatum maxime error temporibus laudantium voluptate! Eaque fugiat, eligendi maxime pariatur,
-        fugit obcaecati at itaque et numquam tempora necessitatibus harum distinctio soluta similique aperiam delectus
-        sapiente nemo enim ad labore. Quibusdam dignissimos ducimus fugiat ab obcaecati odit sit provident sunt nemo!
-      </p>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Alif Model Academy</h1>
+    <p>Academic and Moral Excellence</p>
   </section>
-  <!-- Teacher Remarks Section -->
+
+  <!-- Info Sections -->
+  <section class="info">
+    <h2>Our Mission</h2>
+    <p>To nurture students to become responsible, confident, and globally-minded citizens.</p>
+  </section>
+
+  <section class="info">
+    <h2>Our Vision</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam sunt optio, accusantium eos autem suscipit
+      sint veniam at ullam amet asperiores quos nesciunt rerum facere officia voluptatum id aut. Exercitationem
+      molestiae tenetur itaque provident perferendis iste vel incidunt? Itaque unde magnam reprehenderit adipisci
+      eaque explicabo, autem reiciendis assumenda facere dolorem est necessitatibus consequatur rem placeat totam, at
+      earum porro? Voluptatum maxime error temporibus laudantium voluptate! Eaque fugiat, eligendi maxime pariatur,
+      fugit obcaecati at itaque et numquam tempora necessitatibus harum distinctio soluta similique aperiam delectus
+      sapiente nemo enim ad labore. Quibusdam dignissimos ducimus fugiat ab obcaecati odit sit provident sunt nemo!
+    </p>
+  </section>
+
   <!-- Teacher Remarks Section -->
   <section class="remarks">
     <h2>Teacher Remarks</h2>
@@ -74,27 +90,33 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <script>
-      // Observe sections with class 'info'
-      const infos = document.querySelectorAll('.info');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show'); // add animation class
-            observer.unobserve(entry.target);   // run only once
-          }
-        });
-      }, { threshold: 0.2 }); // trigger when 20% visible
-
-      infos.forEach(info => {
-        observer.observe(info);
-      });
-    </script>
-
     <p>&copy; 2025 Alif Model Academy. All Rights Reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Hamburger menu toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // Scroll animations for info sections and remarks
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.info, .remark-card').forEach(el => observer.observe(el));
+  </script>
 </body>
 
 </html>

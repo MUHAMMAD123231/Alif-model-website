@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, request, redirect, session, url_for
-from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3, uuid, random
 from app import mail
 from flask_mail import Message
@@ -57,7 +56,6 @@ def register_admin():
     if not invitation_code or not invites(invitation_code, "admin"):
         return render_template("register/register_admin.html", error="That is an Invalid invitation code. Kindly contact us.")
 
-    hashPassword = generate_password_hash(password)
     adminId = "ALIF/ADM/" + uuid.uuid4().hex[:4].upper()
 
     conn = sqlite3.connect("database.db")
@@ -76,7 +74,7 @@ def register_admin():
     cursor.execute("""
         INSERT INTO admins(fullname,username,email,dob,gender,phone,role,password,adminId)
         VALUES(?,?,?,?,?,?,?,?,?)
-    """, (fullname, username, email, dob, gender, phone, role, hashPassword, adminId))
+    """, (fullname, username, email, dob, gender, phone, role, password, adminId))
     conn.commit()
     conn.close()
 
@@ -104,7 +102,6 @@ def register_teacher():
     if not invitation_code or not invites(invitation_code, "teacher"):
         return render_template("register/register_teacher.html", error="That is an Invalid invitation code. Kindly contact us.")
 
-    hashPassword = generate_password_hash(password)
     teacherId = "ALIF/TCH/" + uuid.uuid4().hex[:4].upper()
 
     conn = sqlite3.connect("database.db")
@@ -123,7 +120,7 @@ def register_teacher():
     cursor.execute("""
         INSERT INTO teachers(fullname,username,email,dob,gender,phone,subject,password,teacherId)
         VALUES(?,?,?,?,?,?,?,?,?)
-    """, (fullname, username, email, dob, gender, phone, subject_choose, hashPassword, teacherId))
+    """, (fullname, username, email, dob, gender, phone, subject_choose, password, teacherId))
     conn.commit()
     conn.close()
 
@@ -150,7 +147,6 @@ def register_student():
     if not invitation_code or not invites(invitation_code, "student"):
         return render_template("register/register_student.html", error="That is an Invalid invitation code. Kindly contact us.")
 
-    hashPassword = generate_password_hash(password)
     studentId = "ALIF/STU/" + uuid.uuid4().hex[:4].upper()
 
     conn = sqlite3.connect("database.db")
@@ -169,7 +165,7 @@ def register_student():
     cursor.execute("""
         INSERT INTO students(lastname,firstname,username,email,dob,gender,class,password,studentId)
         VALUES(?,?,?,?,?,?,?,?,?)
-    """, (lastname, firstname, username, email, dob, gender, Class, hashPassword, studentId))
+    """, (lastname, firstname, username, email, dob, gender, Class, password, studentId))
     conn.commit()
     conn.close()
 
@@ -257,7 +253,7 @@ def login():
 
         cursor.execute("SELECT password FROM students WHERE studentId = ?", (user_id,))
         student = cursor.fetchone()
-        if student and check_password_hash(student[0], password):
+        if student and student[0] == password:
             session["user_role"] = "student"
             session["user_id"] = user_id
             conn.close()
@@ -265,7 +261,7 @@ def login():
 
         cursor.execute("SELECT password FROM teachers WHERE teacherId = ?", (user_id,))
         teacher = cursor.fetchone()
-        if teacher and check_password_hash(teacher[0], password):
+        if teacher and teacher[0] == password:
             session["user_role"] = "teacher"
             session["user_id"] = user_id
             conn.close()
@@ -273,7 +269,7 @@ def login():
 
         cursor.execute("SELECT password FROM admins WHERE adminId = ?", (user_id,))
         admin = cursor.fetchone()
-        if admin and check_password_hash(admin[0], password):
+        if admin and admin[0] == password:
             session["user_role"] = "admin"
             session["user_id"] = user_id
             conn.close()

@@ -11,7 +11,7 @@ def create_app():
     app.config.from_pyfile('../config.py')
 
     # Initialize extensions
-    socketio.init_app(app)
+    socketio.init_app(app, cors_allowed_origins="*")
     mail.init_app(app)
 
     # Import and register blueprints
@@ -20,11 +20,13 @@ def create_app():
     from .routes.classroom import classroom_bp
     from .routes.home import home_bp
     from .routes.about import about_bp
+    from .routes.student_bio import student_bio_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(classroom_bp)
     app.register_blueprint(home_bp)
     app.register_blueprint(about_bp)
+    app.register_blueprint(student_bio_bp)
 
     return app

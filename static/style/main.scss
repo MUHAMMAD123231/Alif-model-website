@@ -1,4 +1,3 @@
-@use 'telegram_chat';
 @use 'variable';
 @use 'global';
 @use 'forms';
@@ -10,5 +9,5 @@
 @use 'calender';
 @use 'dicussion';
 @use 'dashboard';
-@use 'verify_email':
+@use 'verify_email';
 @use 'chat'

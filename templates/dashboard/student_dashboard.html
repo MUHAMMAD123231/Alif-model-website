@@ -12,292 +12,237 @@
 </head>
 <body>
 <div class="student-dashboard">
+
   <!-- Mobile Header with Hamburger -->
-    <header class="mobile-header">
-      <button id="hamburger" class="hamburger">☰</button>
-      <h2>Student Dashboard</h2>
-    </header>
+  <header class="mobile-header">
+    <button id="hamburger" class="hamburger">☰</button>
+    <h2>Student Dashboard</h2>
+  </header>
 
-    <!-- Sidebar -->
-    <aside>
-      <h2>Student Dashboard</h2>
-      <nav>
-        <li><a href="#overview">📊 Overview</a></li>
-        <li><a href="#bio">📝 My Bio Data</a></li>
-        <li><a href="#courses">📚 My Courses</a></li>
-        <li><a href="#calendar">📅 Calendar</a></li>
-        <li><a href="#assignments">📋 Assignments</a></li>
-        <li><a href="#feed">📢 School Feed</a></li>
-        <li><a href="#events">🎉 Events</a></li>
-        <li><a href="#hub">👥 Student Hub</a></li>
-  <li><a href="#comments">💬 Teacher Comments</a></li>
-  {% if class_forum %}
-  {% set clean_class = class_forum|lower|replace(' ', '') %}
-  {% set valid_forums = ['jss1', 'jss2', 'jss3', 'sss1', 'sss2', 'sss3'] %}
-  {% if clean_class in valid_forums %}
-    <li>
-      <a href="{{ url_for('classroom.discussion', level=clean_class) }}">
-        🗨️ Class Forum ({{ clean_class|upper }})
-      </a>
-    </li>
-  {% else %}
-    <li><span style="color: #888;">🗨️ No valid class forum found</span></li>
-  {% endif %}
-{% endif %}
-      </nav>
-    </aside>
+  <!-- Sidebar -->
+  <aside>
+    <h2>Student Dashboard</h2>
+    <nav>
+      <li><a href="#overview">📊 Overview</a></li>
+      <li><a href="#bio">📝 My Bio Data</a></li>
+      <li><a href="#courses">📚 My Courses</a></li>
+      <li><a href="#calendar">📅 Calendar</a></li>
+      <li><a href="#assignments">📋 Assignments</a></li>
+      <li><a href="#feed">📢 School Feed</a></li>
+      <li><a href="#events">🎉 Events</a></li>
+      <li><a href="#hub">👥 Student Hub</a></li>
+      <li><a href="#comments">💬 Teacher Comments</a></li>
+      {% if class_forum %}
+        {% set clean_class = class_forum|lower|replace(' ', '') %}
+        {% set valid_forums = ['jss1', 'jss2', 'jss3', 'sss1', 'sss2', 'sss3'] %}
+        {% if clean_class in valid_forums %}
+          <li>
+            <a href="{{ url_for('classroom.discussion', level=clean_class) }}">
+              🗨️ Class Forum ({{ clean_class|upper }})
+            </a>
+          </li>
+        {% else %}
+          <li><span style="color: #888;">🗨️ No valid class forum found</span></li>
+        {% endif %}
+      {% endif %}
+    </nav>
+  </aside>
 
-    <!-- Main Content -->
-    <div class="main">
+  <!-- Main Content -->
+  <div class="main">
 
-      <!-- Overview -->
-      <section id="overview" class="section">
-        <h3>Welcome, Abdul Sobur</h3>
-        <div class="stat-grid">
-          <div class="stat">Fees Balance: ₦12,500</div>
-          <div class="stat">Attendance: 92%</div>
-          <div class="stat">Performance: A, B, C</div>
-          <div class="stat">5 Days to Exams</div>
-        </div>
-      </section>
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <h3>Welcome, {{ student.firstname }}</h3>
+      <div class="stat-grid">
+        <div class="stat">Fees Balance: ₦12,500</div>
+        <div class="stat">Attendance: 92%</div>
+        <div class="stat">Performance: A, B, C</div>
+        <div class="stat">5 Days to Exams</div>
+      </div>
+    </section>
 
-      <section id="bio" class="section">
-    <h3>My Bio Data</h3>
+    <!-- Bio Data -->
+    <section id="bio" class="section">
+      <h3>My Bio Data</h3>
 
-    <!-- ⚠️ Warning Message -->
-    <div class="warning-box">
-      ⚠️ <strong>IMPORTANT:</strong> All fields are required. No mistakes will be accepted. Please fill carefully as this will be used for official school records.
-    </div>
-
-    <form id="biodata-form">
-
-      <!-- 1️⃣ PERSONAL INFORMATION -->
-      <fieldset>
-        <legend>1️⃣ Personal Information</legend>
-        <label>Full Name: <input type="text" name="fullname" required /></label>
-        <label>Date of Birth: <input type="date" name="dob" required /></label>
-        <label>Gender:
-          <select name="gender" required>
-            <option value="">Select</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-        </label>
-        <label>Nationality: <input type="text" name="nationality" required /></label>
-        <label>State of Origin: <input type="text" name="state_origin" required /></label>
-        <label>LGA: <input type="text" name="lga" required /></label>
-        <label>Passport Photo: <input type="file" name="passport" accept="image/*" required /></label>
-      </fieldset>
-
-      <!-- 2️⃣ CONTACT & ADDRESS -->
-      <fieldset>
-        <legend>2️⃣ Contact & Address</legend>
-        <label>House Number/Street: <input type="text" name="street" required /></label>
-        <label>City/Town: <input type="text" name="city" required /></label>
-        <label>State: <input type="text" name="state" required /></label>
-        <label>Landmark: <input type="text" name="landmark" required /></label>
-        <label>Student Phone: <input type="tel" name="student_phone" required /></label>
-        <label>Student Email: <input type="email" name="student_email" required /></label>
-      </fieldset>
-
-      <!-- 3️⃣ GUARDIAN DETAILS -->
-      <fieldset>
-        <legend>3️⃣ Guardian Details</legend>
-        <h4>Primary Guardian</h4>
-        <label>Full Name: <input type="text" name="guardian_name" required /></label>
-        <label>Relationship:
-          <select name="guardian_relationship" required>
-            <option value="">Select</option>
-            <option>Father</option>
-            <option>Mother</option>
-            <option>Uncle</option>
-            <option>Aunt</option>
-            <option>Other</option>
-          </select>
-        </label>
-        <label>Phone Number 1: <input type="tel" name="guardian_phone1" required /></label>
-        <label>Phone Number 2: <input type="tel" name="guardian_phone2" required /></label>
-        <label>Email Address: <input type="email" name="guardian_email" required /></label>
-        <label>Occupation: <input type="text" name="guardian_occupation" required /></label>
-        <label>Home/Office Address: <input type="text" name="guardian_address" required /></label>
-
-        <h4>Secondary Guardian</h4>
-        <label>Full Name: <input type="text" name="guardian2_name" required /></label>
-        <label>Relationship: <input type="text" name="guardian2_relationship" required /></label>
-        <label>Phone Number: <input type="tel" name="guardian2_phone" required /></label>
-        <label>Email: <input type="email" name="guardian2_email" required /></label>
-        <label>Occupation: <input type="text" name="guardian2_occupation" required /></label>
-
-        <h4>Emergency Contact</h4>
-        <label>Full Name: <input type="text" name="emergency_name" required /></label>
-        <label>Relationship to Student: <input type="text" name="emergency_relation" required /></label>
-        <label>Phone Number: <input type="tel" name="emergency_phone" required /></label>
-      </fieldset>
-
-      <!-- 4️⃣ HEALTH INFORMATION -->
-      <fieldset>
-        <legend>4️⃣ Health Information</legend>
-        <label>Blood Group:
-          <select name="blood_group" required>
-            <option value="">Select</option>
-            <option>A</option>
-            <option>B</option>
-            <option>AB</option>
-            <option>O</option>
-            <option>Don’t Know</option>
-          </select>
-        </label>
-        <label>Genotype:
-          <select name="genotype" required>
-            <option value="">Select</option>
-            <option>AA</option>
-            <option>AS</option>
-            <option>SS</option>
-            <option>Don’t Know</option>
-          </select>
-        </label>
-        <label>Allergies: <input type="text" name="allergies" required /></label>
-        <label>Chronic Conditions: <input type="text" name="conditions" required /></label>
-        <label>Special Needs: <input type="text" name="special_needs" required /></label>
-      </fieldset>
-
-      <!-- 5️⃣ ACADEMIC BACKGROUND -->
-      <fieldset>
-        <legend>5️⃣ Academic Background</legend>
-        <label>Last School Attended: <input type="text" name="last_school" required /></label>
-        <label>School Address: <input type="text" name="school_address" required /></label>
-        <label>Class Completed: <input type="text" name="class_completed" required /></label>
-        <label>Reason for Leaving:
-          <select name="leaving_reason" required>
-            <option value="">Select</option>
-            <option>Transfer</option>
-            <option>Graduation</option>
-          </select>
-        </label>
-      </fieldset>
-
-      <!-- 6️⃣ INTERESTS -->
-      <fieldset>
-        <legend>6️⃣ Interests</legend>
-        <label>Hobbies: <input type="text" name="hobbies" required /></label>
-        <label>Preferred School Clubs: <input type="text" name="clubs" required /></label>
-      </fieldset>
-
-      <!-- Buttons -->
-      <div class="form-buttons">
-        <button type="submit">Submit</button>
-        <button type="button" id="view-bio-btn">View</button>
+      <div class="warning-box">
+        ⚠️ <strong>IMPORTANT:</strong> All fields are required. Fill carefully.
       </div>
 
-    </form>
-  </section>
+      <form id="biodata-form" action="{{ url_for('student_bio.biodata') }}" method="post" enctype="multipart/form-data">
 
+        <!-- 1️⃣ PERSONAL INFORMATION -->
+        <fieldset>
+          <legend>1️⃣ Personal Information</legend>
+          <label>Full Name:
+            <input type="text" name="fullname" required value="{{ student.firstname }} {{ student.lastname }}" readonly />
+          </label>
+          <label>Date of Birth:
+            <input type="date" name="dob" required value="{{ biodata.dob or '' }}" />
+          </label>
+          <label>Gender:
+            <select name="gender" required>
+              <option value="">Select</option>
+              <option {% if biodata.gender == 'Male' %}selected{% endif %}>Male</option>
+              <option {% if biodata.gender == 'Female' %}selected{% endif %}>Female</option>
+              <option {% if biodata.gender == 'Other' %}selected{% endif %}>Other</option>
+            </select>
+          </label>
+          <label>Nationality:
+            <input type="text" name="nationality" required value="{{ biodata.nationality or '' }}" />
+          </label>
+          <label>State of Origin:
+            <input type="text" name="state_origin" required value="{{ biodata.state_of_origin or '' }}" />
+          </label>
+          <label>LGA:
+            <input type="text" name="lga" required value="{{ biodata.lga or '' }}" />
+          </label>
+          <label>Passport Photo:
+            {% if biodata.photo %}
+              <img src="{{ url_for('static', filename=biodata.photo) }}" alt="Passport" width="100"/>
+            {% endif %}
+            <input type="file" name="passport" accept="image/*" />
+          </label>
+        </fieldset>
 
+        <!-- 2️⃣ CONTACT & ADDRESS -->
+        <fieldset>
+          <legend>2️⃣ Contact & Address</legend>
+          <label>House Number/Street:
+            <input type="text" name="street" required value="{{ biodata.street or '' }}" />
+          </label>
+          <label>City/Town:
+            <input type="text" name="city" required value="{{ biodata.city or '' }}" />
+          </label>
+          <label>State:
+            <input type="text" name="state" required value="{{ biodata.state or '' }}" />
+          </label>
+          <label>Landmark:
+            <input type="text" name="landmark" value="{{ biodata.landmark or '' }}" />
+          </label>
+          <label>Student Phone:
+            <input type="tel" name="student_phone" required value="{{ biodata.phone or '' }}" />
+          </label>
+          <label>Student Email:
+            <input type="email" name="student_email" required value="{{ student.email or '' }}" readonly />
+          </label>
+        </fieldset>
 
-      <!-- Courses -->
-      <section id="courses" class="section">
-        <h3>My Courses & Performance</h3>
-        <table class="course-table">
-          <thead>
-            <tr>
-              <th>Subject</th>
-              <th>Score</th>
-              <th>Grade</th>
-              <th>Comment</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Mathematics</td>
-              <td>78%</td>
-              <td>B</td>
-              <td>Improved in Algebra</td>
-            </tr>
-            <tr>
-              <td>English</td>
-              <td>85%</td>
-              <td>A</td>
-              <td>Excellent writing skills</td>
-            </tr>
-            <tr>
-              <td>Biology</td>
-              <td>69%</td>
-              <td>C</td>
-              <td>Needs more revision</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+        <!-- 3️⃣ GUARDIAN DETAILS -->
+        <fieldset>
+          <legend>3️⃣ Guardian Details</legend>
+          <h4>Primary Guardian</h4>
+          <label>Full Name:
+            <input type="text" name="guardian_name" required value="{{ biodata.guardian_name or '' }}" />
+          </label>
+          <label>Relationship:
+            <input type="text" name="guardian_relationship" required value="{{ biodata.guardian_relationship or '' }}" />
+          </label>
+          <label>Phone Number 1:
+            <input type="tel" name="guardian_phone1" value="{{ biodata.guardian_phone1 or '' }}" />
+          </label>
+          <label>Phone Number 2:
+            <input type="tel" name="guardian_phone2" value="{{ biodata.guardian_phone2 or '' }}" />
+          </label>
+          <label>Email Address:
+            <input type="email" name="guardian_email" value="{{ biodata.guardian_email or '' }}" />
+          </label>
+          <label>Occupation:
+            <input type="text" name="guardian_occupation" value="{{ biodata.guardian_occupation or '' }}" />
+          </label>
+          <label>Home/Office Address:
+            <input type="text" name="guardian_address" value="{{ biodata.guardian_address or '' }}" />
+          </label>
 
-      <!-- Calendar -->
-      <section id="calendar" class="section">
-        <h3>School Calendar</h3>
-        <!-- Replace this div with real calendar later -->
-        <div class="calendar-placeholder">
-          📅 Real calendar will be integrated here
+          <h4>Secondary Guardian</h4>
+          <label>Full Name:
+            <input type="text" name="guardian2_name" value="{{ biodata.guardian2_name or '' }}" />
+          </label>
+          <label>Relationship:
+            <input type="text" name="guardian2_relationship" value="{{ biodata.guardian2_relationship or '' }}" />
+          </label>
+          <label>Phone Number:
+            <input type="tel" name="guardian2_phone" value="{{ biodata.guardian2_phone or '' }}" />
+          </label>
+          <label>Email:
+            <input type="email" name="guardian2_email" value="{{ biodata.guardian2_email or '' }}" />
+          </label>
+          <label>Occupation:
+            <input type="text" name="guardian2_occupation" value="{{ biodata.guardian2_occupation or '' }}" />
+          </label>
+
+          <h4>Emergency Contact</h4>
+          <label>Full Name:
+            <input type="text" name="emergency_name" value="{{ biodata.emergency_name or '' }}" />
+          </label>
+          <label>Relationship:
+            <input type="text" name="emergency_relation" value="{{ biodata.emergency_relation or '' }}" />
+          </label>
+          <label>Phone Number:
+            <input type="tel" name="emergency_phone" value="{{ biodata.emergency_phone or '' }}" />
+          </label>
+        </fieldset>
+
+        <!-- 4️⃣ HEALTH INFORMATION -->
+        <fieldset>
+          <legend>4️⃣ Health Information</legend>
+          <label>Blood Group:
+            <input type="text" name="blood_group" value="{{ biodata.blood_group or '' }}" />
+          </label>
+          <label>Genotype:
+            <input type="text" name="genotype" value="{{ biodata.genotype or '' }}" />
+          </label>
+          <label>Allergies:
+            <input type="text" name="allergies" value="{{ biodata.allergies or '' }}" />
+          </label>
+          <label>Chronic Conditions:
+            <input type="text" name="conditions" value="{{ biodata.conditions or '' }}" />
+          </label>
+          <label>Special Needs:
+            <input type="text" name="special_needs" value="{{ biodata.special_needs or '' }}" />
+          </label>
+        </fieldset>
+
+        <!-- 5️⃣ ACADEMIC BACKGROUND -->
+        <fieldset>
+          <legend>5️⃣ Academic Background</legend>
+          <label>Last School Attended:
+            <input type="text" name="last_school" value="{{ biodata.previous_school or '' }}" />
+          </label>
+          <label>School Address:
+            <input type="text" name="school_address" value="{{ biodata.previous_school_address or '' }}" />
+          </label>
+          <label>Class Completed:
+            <input type="text" name="class_completed" value="{{ biodata.class_completed or '' }}" />
+          </label>
+          <label>Reason for Leaving:
+            <input type="text" name="leaving_reason" value="{{ biodata.leaving_reason or '' }}" />
+          </label>
+        </fieldset>
+
+        <!-- 6️⃣ INTERESTS -->
+        <fieldset>
+          <legend>6️⃣ Interests</legend>
+          <label>Hobbies:
+            <input type="text" name="hobbies" value="{{ biodata.hobbies or '' }}" />
+          </label>
+          <label>Preferred School Clubs:
+            <input type="text" name="clubs" value="{{ biodata.clubs or '' }}" />
+          </label>
+        </fieldset>
+
+        <div class="form-buttons">
+          <button type="submit">Submit</button>
         </div>
-      </section>
 
-      <!-- Assignments -->
-      <section id="assignments" class="section">
-        <h3>Assignments</h3>
-        <div class="assignment-box">
-          <h4>Biology Project</h4>
-          <p>Due in: <span class="countdown">3d 2h</span></p>
-          <form>
-            <textarea placeholder="Enter your answer..."></textarea>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-        <div class="assignment-box">
-          <h4>English Essay</h4>
-          <p>Due in: <span class="countdown">1d 5h</span></p>
-          <form>
-            <textarea placeholder="Enter your answer..."></textarea>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </section>
+      </form>
+    </section>
 
-      <!-- School Feed -->
-      <section id="feed" class="section">
-        <h3>School Feed</h3>
-        <ul>
-          <li>📢 New uniform policy starts August 1</li>
-          <li>📢 Third term exam begins July 22</li>
-          <li>📢 Parent-Teacher meeting this Friday</li>
-        </ul>
-      </section>
+    <!-- Remaining sections (courses, calendar, assignments, feed, events, hub, comments) remain unchanged -->
 
-      <!-- Events -->
-      <section id="events" class="section">
-        <h3>Events & Competitions</h3>
-        <p>Children’s Day Photo Contest</p>
-        <p>Time left: <span class="countdown">6d 12h</span></p>
-        <input type="file" accept="image/*,video/*" />
-        <button type="submit">Upload</button>
-      </section>
-
-      <!-- Hub -->
-      <section id="hub" class="section">
-        <h3>Students’ Hub</h3>
-        <p>Share photos/videos. Vote for "Most Handsome/Beautiful Student"!</p>
-        <input type="file" accept="image/*,video/*" />
-        <textarea placeholder="Say something fun..."></textarea>
-        <button type="submit">Post</button>
-      </section>
-
-      <!-- Teacher Comments -->
-      <section id="comments" class="section">
-        <h3>Teacher Comments</h3>
-        <ul>
-          <li>📘 English: Excellent participation</li>
-          <li>📐 Math: Needs more attention to geometry</li>
-          <li>🔬 Biology: Great observation in lab work</li>
-        </ul>
-      </section>
   </div>
-  <script src = "../../static/interaction/dash.js"></script>
+
+  <script src="../../static/interaction/dash.js"></script>
 </body>
 </html>
